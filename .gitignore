@@ -1,0 +1,14 @@
+# NetBeans & Ant Build Artifacts
+build/
+dist/
+nbproject/private/
+*.class
+
+# Scratch testing scripts
+scratch/
+
+# IDE & OS Artifacts
+.DS_Store
+Thumbs.db
+*.log
+*.tmp

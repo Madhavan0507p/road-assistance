@@ -1,0 +1,1424 @@
+/* ==========================================================================
+   USER MODULE DASHBOARD STYLESHEET
+   On Road Vehicle Breakdown Assistance
+   Strict Automotive Theme: Orange (#F97316), Charcoal (#1F2937), Dark (#111827), White (#FFFFFF)
+   Zero Blue Color Rule Enforced
+   ========================================================================== */
+
+/* Theme Variables Definition */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #111827;
+    color: #1F2937;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   1. TOP NAVIGATION BAR
+   ========================================================================== */
+.user-top-navbar {
+    height: 64px;
+    background-color: #111827;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.brand-logo-icon {
+    width: 38px;
+    height: 38px;
+    background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-size: 18px;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.35);
+}
+
+.brand-text-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-main-title {
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: -0.2px;
+    line-height: 1.2;
+}
+
+.brand-sub-title {
+    color: #94A3B8;
+    font-size: 10.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.btn-sidebar-toggle {
+    background: transparent;
+    border: none;
+    color: #94A3B8;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.btn-sidebar-toggle:hover {
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Notification Bell */
+.notification-wrapper {
+    position: relative;
+}
+
+.btn-notif {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #D1D5DB;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.btn-notif:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #FFFFFF;
+}
+
+.notif-badge {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 8px;
+    height: 8px;
+    background-color: #F97316;
+    border-radius: 50%;
+    border: 2px solid #111827;
+}
+
+.notif-dropdown-menu {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 320px;
+    background: #1F2937;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    display: none;
+    z-index: 1050;
+    overflow: hidden;
+}
+
+.notif-dropdown-menu.show {
+    display: block;
+}
+
+.notif-header {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.notif-header h4 {
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.notif-count {
+    background: #F97316;
+    color: #FFFFFF;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.notif-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 16px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background 0.2s;
+}
+
+.notif-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.notif-icon-box {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+}
+
+.notif-title {
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.notif-desc {
+    color: #94A3B8;
+    font-size: 11px;
+    line-height: 1.35;
+    margin-bottom: 4px;
+}
+
+.notif-time {
+    color: #F97316;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+/* User Profile Nav Badge */
+.user-profile-wrapper {
+    position: relative;
+}
+
+.btn-user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 24px;
+    transition: all 0.2s ease;
+}
+
+.btn-user-profile:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.user-avatar-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #F97316;
+    flex-shrink: 0;
+}
+
+.avatar-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-info-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.user-display-name {
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.user-display-role {
+    color: #94A3B8;
+    font-size: 10.5px;
+    font-weight: 500;
+}
+
+.profile-chevron {
+    color: #94A3B8;
+    font-size: 11px;
+    transition: transform 0.2s ease;
+}
+
+.user-dropdown-menu {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 200px;
+    background: #1F2937;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    display: none;
+    z-index: 1050;
+    padding: 6px 0;
+}
+
+.user-dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-user-header {
+    padding: 10px 16px 8px;
+}
+
+.dropdown-user-header .header-name {
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.dropdown-user-header .header-role {
+    color: #94A3B8;
+    font-size: 10.5px;
+}
+
+.dropdown-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    margin: 4px 0;
+}
+
+.dropdown-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    color: #D1D5DB;
+    text-decoration: none;
+    font-size: 12.5px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.dropdown-link:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #FFFFFF;
+}
+
+.dropdown-link.text-danger {
+    color: #EF4444;
+}
+
+/* ==========================================================================
+   2. DASHBOARD SHELL & SIDEBAR
+   ========================================================================== */
+.dashboard-shell {
+    display: flex;
+    min-height: calc(100vh - 64px);
+    background-color: #111827;
+}
+
+.user-sidebar {
+    width: 260px !important;
+    min-width: 260px !important;
+    max-width: 260px !important;
+    flex: 0 0 260px !important;
+    flex-shrink: 0 !important;
+    background-color: #111827;
+    padding: 16px 14px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: sticky;
+    top: 64px;
+    height: calc(100vh - 64px);
+    overflow: hidden;
+    z-index: 990;
+    box-sizing: border-box;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.user-sidebar-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar-item {
+    border-radius: 12px;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 16px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 600;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+.sidebar-link i {
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+    color: #F97316;
+    transition: all 0.2s ease;
+}
+
+.sidebar-item:hover .sidebar-link {
+    background: rgba(255, 255, 255, 0.06);
+    color: #FFFFFF;
+}
+
+/* Active Dashboard Navigation Item - Solid Orange */
+.sidebar-item.active .sidebar-link {
+    background-color: #F97316;
+    color: #FFFFFF;
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(249, 115, 22, 0.35);
+}
+
+.sidebar-item.active .sidebar-link i {
+    color: #FFFFFF;
+}
+
+/* Sidebar Bottom Container (Tow Truck Photo & Logout Pinned to Bottom without scroll) */
+.user-sidebar-bottom-container {
+    padding: 8px 0 2px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-shrink: 0;
+    margin-top: auto;
+}
+
+.user-sidebar-bottom-image-box {
+    width: 100%;
+    height: 110px;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    flex-shrink: 0;
+    position: relative;
+    background: #1F2937;
+}
+
+.user-sidebar-bottom-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center bottom;
+    display: block;
+    border-radius: 14px;
+}
+
+/* Logout Action Button at the very bottom of Sidebar */
+.user-sidebar-logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #E5E7EB;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.2s ease;
+    text-decoration: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.user-sidebar-logout-btn i {
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+    color: #F97316;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.user-sidebar-logout-btn:hover {
+    background-color: #DC2626 !important;
+    border-color: #DC2626 !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.35);
+    transform: translateY(-1px);
+}
+
+.user-sidebar-logout-btn:hover i {
+    color: #FFFFFF !important;
+    transform: translateX(2px);
+}
+
+/* ==========================================================================
+   3. MAIN DASHBOARD CANVAS (WHITE WITH ROUNDED TOP-LEFT)
+   ========================================================================== */
+.main-dashboard-canvas {
+    flex: 1;
+    background-color: #FFFFFF;
+    border-top-left-radius: 24px;
+    padding: 22px 28px;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Page Header: Title + Dynamic Date */
+.dashboard-page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+
+.header-text-group h1 {
+    font-size: 24px;
+    font-weight: 800;
+    color: #1F2937;
+    letter-spacing: -0.3px;
+    margin-bottom: 3px;
+}
+
+.accent-orange {
+    color: #F97316;
+}
+
+.header-text-group p {
+    font-size: 13px;
+    color: #64748B;
+    margin: 0;
+}
+
+.date-badge-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #1F2937;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.date-badge-card i {
+    color: #F97316;
+    font-size: 14px;
+}
+
+/* ==========================================================================
+   4. ROW 2: WELCOME HERO BANNER & MY VEHICLES CARD
+   ========================================================================== */
+.hero-row-grid {
+    display: grid;
+    grid-template-columns: 2.25fr 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+/* Welcome Hero Banner */
+.welcome-hero-banner {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    background-color: #0B1729;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.hero-bg-photo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;
+    z-index: 1;
+}
+
+.hero-inner-content {
+    position: relative;
+    z-index: 2;
+    padding: 16px 26px;
+    max-width: 440px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-subtitle-top {
+    color: #F8FAFC;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.hero-user-name {
+    color: #FFFFFF;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    margin-bottom: 4px;
+}
+
+.hero-desc {
+    color: #CBD5E1;
+    font-size: 11.5px;
+    line-height: 1.45;
+    margin-bottom: 12px;
+    max-width: 350px;
+}
+
+.btn-hero-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+    color: #FFFFFF;
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 24px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.35);
+    align-self: flex-start;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-hero-action:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(249, 115, 22, 0.45);
+}
+
+/* My Vehicles Summary Card - Dark Theme */
+.my-vehicles-card {
+    position: relative;
+    background: linear-gradient(145deg, #111827 0%, #1E293B 100%);
+    border-radius: 20px;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 160px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vehicles-card-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.vehicles-card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.veh-icon-box {
+    width: 26px;
+    height: 26px;
+    background: #F97316;
+    color: #FFFFFF;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.veh-card-title {
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.vehicles-card-body {
+    margin: 4px 0 8px 0;
+}
+
+.veh-big-count {
+    font-size: 28px;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1;
+}
+
+.veh-sub-label {
+    font-size: 11px;
+    color: #94A3B8;
+    margin-top: 2px;
+}
+
+.btn-manage-vehicles {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background-color: #FFFFFF;
+    color: #F97316;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btn-manage-vehicles:hover {
+    background-color: #FFF7ED;
+    transform: translateY(-1px);
+}
+
+.veh-car-illustration-wrap {
+    position: absolute;
+    top: 10px;
+    right: -5px;
+    width: 135px;
+    height: 95px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.veh-car-illustration {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ==========================================================================
+   5. ROW 3: FOUR STATISTICS METRIC CARDS
+   ========================================================================== */
+.stats-cards-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.stat-metric-card {
+    position: relative;
+    border-radius: 16px;
+    padding: 12px 16px 10px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 92px;
+    border: 1px solid transparent;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-metric-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+}
+
+.stat-card-orange {
+    background-color: #FFF7ED;
+    border-color: #FFEDD5;
+}
+.stat-card-orange .stat-icon-wrapper {
+    background-color: #FFEDD5;
+    color: #F97316;
+}
+
+.stat-card-green {
+    background-color: #F0FDF4;
+    border-color: #BBF7D0;
+}
+.stat-card-green .stat-icon-wrapper {
+    background-color: #DCFCE7;
+    color: #16A34A;
+}
+
+.stat-card-yellow {
+    background-color: #FEFCE8;
+    border-color: #FEF08A;
+}
+.stat-card-yellow .stat-icon-wrapper {
+    background-color: #FEF9C3;
+    color: #D97706;
+}
+
+.stat-card-red {
+    background-color: #FEF2F2;
+    border-color: #FECACA;
+}
+.stat-card-red .stat-icon-wrapper {
+    background-color: #FEE2E2;
+    color: #EF4444;
+}
+
+.stat-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
+
+.stat-icon-wrapper {
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+}
+
+.stat-trend-badge {
+    font-size: 10.5px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.trend-up {
+    color: #16A34A;
+    background: rgba(22, 163, 74, 0.12);
+}
+
+.trend-down {
+    color: #EF4444;
+    background: rgba(239, 68, 68, 0.12);
+}
+
+.trend-neutral {
+    color: #64748B;
+    background: rgba(100, 116, 139, 0.12);
+}
+
+.stat-data-block {
+    position: relative;
+    z-index: 2;
+    margin-top: 2px;
+}
+
+.stat-data-title {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #64748B;
+    display: block;
+    line-height: 1.2;
+}
+
+.stat-data-value {
+    font-size: 22px;
+    font-weight: 800;
+    color: #111827;
+    line-height: 1.1;
+}
+
+.stat-wave-svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 26px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   6. ROW 4: TRI-GRID (CURRENT REQUEST + NEARBY MECHANICS + FIND MECHANICS)
+   ========================================================================== */
+.workflow-tri-grid {
+    display: grid;
+    grid-template-columns: 1.65fr 1fr 0.95fr;
+    gap: 18px;
+    margin-bottom: 0;
+}
+
+.dashboard-box-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Dark Title Bar Header for All 3 Cards */
+.card-dark-header {
+    background: #111827;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-left i.text-orange {
+    color: #F97316;
+    font-size: 15px;
+}
+
+.card-title-text {
+    color: #FFFFFF;
+    font-size: 13.5px;
+    font-weight: 700;
+}
+
+.header-view-all {
+    color: #F97316;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.header-view-all:hover {
+    color: #FB923C;
+}
+
+.card-inner-body {
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.card-inner-body.p-0 {
+    padding: 0;
+}
+
+/* 6A. Current Request Card Content */
+.req-detail-subcard {
+    background-color: #FFF8F5;
+    border: 1px solid #FFEDD5;
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.subcard-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.subcard-icon-box {
+    width: 34px;
+    height: 34px;
+    background: #FFEDD5;
+    color: #F97316;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+}
+
+.subcard-issue {
+    font-size: 13px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 3px 0;
+}
+
+.subcard-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 11px;
+    color: #64748B;
+}
+
+.subcard-meta i {
+    font-size: 10.5px;
+}
+
+.badge-status-in-progress {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #FEF9C3;
+    color: #B45309;
+    border: 1px dashed #FCD34D;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.badge-status-pending {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #FEF3C7;
+    color: #D97706;
+    border: 1px dashed #FBBF24;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.badge-status-on-way {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #FFF7ED;
+    color: #EA580C;
+    border: 1px solid #FDBA74;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.badge-status-completed {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #DCFCE7;
+    color: #16A34A;
+    border: 1px solid #86EFAC;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+/* 5-Milestone Stepper */
+.timeline-stepper {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 14px 6px 10px 6px;
+    margin: 4px 0;
+}
+
+.timeline-track-bar {
+    position: absolute;
+    top: 24px;
+    left: 28px;
+    right: 28px;
+    height: 3px;
+    background-color: #E2E8F0;
+    z-index: 1;
+}
+
+.track-fill-green {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #16A34A;
+}
+
+.track-fill-orange {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background-color: #F97316;
+}
+
+.stepper-node {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 78px;
+}
+
+.node-circle {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    background-color: #FFFFFF;
+    border: 2px solid #CBD5E1;
+    color: #94A3B8;
+    margin-bottom: 5px;
+}
+
+.stepper-node.completed .node-circle {
+    background-color: #16A34A;
+    border-color: #16A34A;
+    color: #FFFFFF;
+}
+
+.stepper-node.active-current .node-circle {
+    background-color: #F97316;
+    border-color: #F97316;
+    color: #FFFFFF;
+    font-size: 9px;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.25);
+}
+
+.stepper-node.upcoming .node-circle {
+    background-color: #F8FAFC;
+    border-color: #E2E8F0;
+}
+
+.node-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #CBD5E1;
+}
+
+.node-label {
+    font-size: 10.5px;
+    font-weight: 600;
+    color: #64748B;
+    line-height: 1.2;
+}
+
+.stepper-node.active-current .node-label {
+    color: #EA580C;
+    font-weight: 700;
+}
+
+.stepper-node.completed .node-label {
+    color: #111827;
+}
+
+.node-time {
+    font-size: 9.5px;
+    color: #94A3B8;
+    margin-top: 1px;
+}
+
+/* 3 Outline Bottom Buttons */
+.req-action-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.btn-outline-action {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background-color: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    border-radius: 20px;
+    padding: 7px 8px;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #1E293B;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.btn-outline-action:hover {
+    background-color: #F8FAFC;
+    border-color: #94A3B8;
+}
+
+.btn-outline-action.text-orange-icon i {
+    color: #F97316;
+}
+
+.btn-cancel-action {
+    border-color: #FECACA;
+    color: #EF4444;
+}
+
+.btn-cancel-action i {
+    color: #EF4444;
+}
+
+.btn-cancel-action:hover {
+    background-color: #FEF2F2;
+    border-color: #F87171;
+}
+
+/* 6B. Nearby Mechanics List */
+.nearby-mechanics-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.mech-card-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 18px;
+    border-bottom: 1px solid #F1F5F9;
+}
+
+.mech-card-item:last-child {
+    border-bottom: none;
+}
+
+.mech-item-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.mech-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #E2E8F0;
+}
+
+.mech-item-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.mech-workshop-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 2px 0;
+}
+
+.mech-loc {
+    font-size: 11px;
+    color: #64748B;
+    margin-bottom: 2px;
+}
+
+.mech-loc i {
+    font-size: 10px;
+    color: #94A3B8;
+}
+
+.mech-rating {
+    font-size: 11px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.mech-rating i {
+    color: #F97316;
+    font-size: 10.5px;
+}
+
+.rating-count {
+    font-weight: 400;
+    color: #64748B;
+}
+
+.btn-view-profile-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F97316;
+    color: #FFFFFF;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 18px;
+    text-decoration: none;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btn-view-profile-pill:hover {
+    background-color: #EA580C;
+    transform: translateY(-1px);
+}
+
+/* 6C. Find Mechanics Near You */
+.find-mechanics-card .card-inner-body {
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.find-map-crop-box {
+    width: 100%;
+    height: 95px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #E2E8F0;
+    position: relative;
+}
+
+.find-map-exact-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.find-map-text {
+    font-size: 11.5px;
+    color: #64748B;
+    line-height: 1.4;
+    margin: 8px 0 10px 0;
+}
+
+.btn-find-mechanics-main {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+    color: #FFFFFF;
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 22px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.35);
+    transition: all 0.2s ease;
+}
+
+.btn-find-mechanics-main:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(249, 115, 22, 0.45);
+}
+
+/* ==========================================================================
+   7. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1200px) {
+    .workflow-tri-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-row-grid {
+        grid-template-columns: 1fr;
+    }
+    .stats-cards-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .dashboard-shell {
+        flex-direction: column;
+    }
+    .user-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 270px;
+        height: 100vh;
+        z-index: 2000;
+        transform: translateX(-100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 4px 0 24px rgba(0, 0, 0, 0.5);
+    }
+    .user-sidebar.open {
+        transform: translateX(0);
+    }
+    .user-sidebar-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 1999;
+        display: none;
+        backdrop-filter: blur(2px);
+    }
+    .user-sidebar-backdrop.show {
+        display: block;
+    }
+    .main-dashboard-canvas {
+        border-top-left-radius: 0;
+        padding: 20px 16px;
+    }
+}
+
+@media (max-width: 576px) {
+    .stats-cards-row {
+        grid-template-columns: 1fr;
+    }
+}

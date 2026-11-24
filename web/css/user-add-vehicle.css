@@ -1,0 +1,1071 @@
+/* ==========================================================================
+   USER MODULE — ADD NEW VEHICLE PAGE STYLESHEET
+   On Road Vehicle Breakdown Assistance
+   Matching Reference Screenshot: media_1793817231748_3307e15e.png
+   Theme: Primary Orange (#F97316), Dark Orange (#EA580C), Charcoal (#1F2937),
+          Dark Sidebar (#111827), Light BG (#F5F7FA), Border (#E5E7EB)
+   Strict Automotive Palette: Zero Blue Colors Anywhere
+   ========================================================================== */
+
+/* Theme Variables Definition */
+
+/* ==========================================================================
+   PAGE CONTAINER & TOP HEADER
+   ========================================================================== */
+.add-vehicle-container {
+    width: 100%;
+    max-width: 1420px;
+    margin: 0 auto;
+}
+
+.add-vehicle-main-card {
+    background: #FFFFFF;
+    border-radius: 24px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+    border: 1px solid #F1F5F9;
+    padding: 20px 24px 24px 24px;
+}
+
+/* Header Row: Title & Subtitle + Breadcrumbs */
+.add-vehicle-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+    gap: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #F3F4F6;
+}
+
+.add-vehicle-title-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.add-vehicle-icon-badge {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(234, 88, 12, 0.22) 100%);
+    border: 1px solid rgba(249, 115, 22, 0.25);
+    color: #F97316;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 14px rgba(249, 115, 22, 0.15);
+}
+
+.add-vehicle-title-text h1 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #1F2937;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    margin: 0;
+}
+
+.add-vehicle-title-text h1 .accent-orange {
+    color: #F97316;
+}
+
+.add-vehicle-title-text p {
+    color: #6B7280;
+    font-size: 13.5px;
+    margin-top: 4px;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+/* Breadcrumbs */
+.add-vehicle-breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #F9FAFB;
+    padding: 8px 16px;
+    border-radius: 12px;
+    border: 1px solid #E5E7EB;
+    font-size: 13.5px;
+    font-weight: 600;
+}
+
+.breadcrumb-link {
+    color: #6B7280;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb-link:hover {
+    color: #F97316;
+}
+
+.breadcrumb-separator {
+    color: #D1D5DB;
+    font-size: 11px;
+}
+
+.breadcrumb-current {
+    color: #F97316;
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   TWO-COLUMN MAIN CONTENT GRID
+   ========================================================================== */
+.add-vehicle-layout-grid {
+    display: grid;
+    grid-template-columns: 295px 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+/* ==========================================================================
+   LEFT COLUMN: INFORMATION CARD
+   ========================================================================== */
+.vehicle-info-panel {
+    background: linear-gradient(180deg, #1F2937 0%, #111827 100%);
+    border-radius: 20px;
+    padding: 20px 18px;
+    color: #FFFFFF;
+    box-shadow: 0 10px 30px rgba(17, 24, 39, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    position: sticky;
+    top: 96px;
+}
+
+.info-panel-title-group {
+    margin-bottom: 8px;
+}
+
+.info-panel-title {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.4px;
+    color: #FFFFFF;
+    margin: 0 0 4px 0;
+}
+
+.info-panel-title .accent-orange {
+    color: #F97316;
+    display: block;
+}
+
+.info-panel-desc {
+    font-size: 12.5px;
+    color: #D1D5DB;
+    line-height: 1.45;
+    margin: 0;
+}
+
+/* Image inside Info Panel */
+.info-panel-image-wrapper {
+    margin: 14px 0 16px 0;
+    border-radius: 14px;
+    overflow: hidden;
+    height: 135px;
+    position: relative;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.info-panel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center bottom;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.info-panel-image-wrapper:hover .info-panel-image {
+    transform: scale(1.04);
+}
+
+.info-panel-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(17, 24, 39, 0.05) 0%, rgba(17, 24, 39, 0.55) 100%);
+    pointer-events: none;
+}
+
+/* Feature Bullets Stack */
+.info-features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.info-feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.info-feature-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 10px;
+    background: rgba(249, 115, 22, 0.18);
+    border: 1px solid rgba(249, 115, 22, 0.35);
+    color: #F97316;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.info-feature-text h4 {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0 0 1px 0;
+}
+
+.info-feature-text p {
+    font-size: 11.5px;
+    color: #9CA3AF;
+    margin: 0;
+    line-height: 1.35;
+}
+
+/* ==========================================================================
+   RIGHT COLUMN: VEHICLE REGISTRATION FORM
+   ========================================================================== */
+.vehicle-form-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    border: 1px solid #E5E7EB;
+    padding: 20px 22px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+}
+
+/* Section Header */
+.form-section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.section-icon-badge {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+}
+
+.section-title-text h2 {
+    font-size: 18px;
+    font-weight: 800;
+    color: #1F2937;
+    margin: 0;
+    letter-spacing: -0.3px;
+}
+
+.section-title-text p {
+    font-size: 12.5px;
+    color: #6B7280;
+    margin: 2px 0 0 0;
+    font-weight: 500;
+}
+
+/* Responsive 3-Column & 4-Column Grids for Fields */
+.form-fields-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.form-fields-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+/* Form Field Group */
+.form-group-custom {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+}
+
+.form-label-custom {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #1F2937;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 2px;
+}
+
+.form-label-custom i {
+    color: #F97316;
+    font-size: 12px;
+}
+
+.form-label-custom .required-star {
+    color: #DC2626;
+    font-weight: 800;
+}
+
+/* Input Wrapper & Inputs */
+.input-wrapper-custom {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-custom,
+.select-custom {
+    width: 100%;
+    height: 42px;
+    background-color: #F9FAFB;
+    border: 1.5px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 0 13px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #1F2937;
+    font-family: inherit;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.input-custom::placeholder {
+    color: #9CA3AF;
+    font-weight: 400;
+}
+
+.input-custom:focus,
+.select-custom:focus {
+    background-color: #FFFFFF;
+    border-color: #F97316;
+    box-shadow: 0 0 0 3.5px rgba(249, 115, 22, 0.16);
+}
+
+.input-custom.is-valid,
+.select-custom.is-valid {
+    border-color: #16A34A;
+    background-color: #FFFFFF;
+}
+
+.input-custom.is-invalid,
+.select-custom.is-invalid {
+    border-color: #DC2626;
+    background-color: #FFF5F5;
+}
+
+/* Registration Number Special Field (Upper-case Monospace) */
+.reg-no-input {
+    font-family: 'Plus Jakarta Sans', monospace;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 14.5px;
+}
+
+/* Dynamic Model Suggestions Pill Row */
+.model-suggestions-wrapper {
+    display: none;
+    margin-top: 6px;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.model-pill {
+    padding: 4px 10px;
+    border-radius: 8px;
+    background: #FFF7ED;
+    border: 1px solid #FFEDD5;
+    color: #EA580C;
+    font-size: 11.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.18s ease;
+}
+
+.model-pill:hover {
+    background: #F97316;
+    color: #FFFFFF;
+    border-color: #F97316;
+}
+
+/* Searchable Autocomplete Dropdown Component */
+.searchable-dropdown {
+    position: relative;
+    width: 100%;
+}
+
+.searchable-input-trigger {
+    width: 100%;
+    height: 42px;
+    background-color: #F9FAFB;
+    border: 1.5px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 0 36px 0 13px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #1F2937;
+    font-family: inherit;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+}
+
+.searchable-input-trigger:focus,
+.searchable-dropdown.open .searchable-input-trigger {
+    background-color: #FFFFFF;
+    border-color: #F97316;
+    box-shadow: 0 0 0 3.5px rgba(249, 115, 22, 0.16);
+}
+
+.searchable-input-trigger .trigger-icon {
+    position: absolute;
+    right: 14px;
+    color: #9CA3AF;
+    font-size: 13px;
+    pointer-events: none;
+    transition: transform 0.2s ease;
+}
+
+.searchable-dropdown.open .trigger-icon {
+    transform: rotate(180deg);
+    color: #F97316;
+}
+
+.searchable-menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 14px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.14);
+    z-index: 1000;
+    display: none;
+    padding: 8px;
+    animation: dropdownFadeIn 0.2s ease;
+}
+
+@keyframes dropdownFadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.searchable-dropdown.open .searchable-menu {
+    display: block;
+}
+
+.searchable-search-box {
+    padding: 4px;
+    margin-bottom: 6px;
+    position: relative;
+}
+
+.searchable-search-input {
+    width: 100%;
+    height: 38px;
+    background: #F9FAFB;
+    border: 1.5px solid #E5E7EB;
+    border-radius: 8px;
+    padding: 0 12px 0 34px;
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.searchable-search-input:focus {
+    border-color: #F97316;
+    background: #FFFFFF;
+}
+
+.searchable-search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 13px;
+    color: #9CA3AF;
+    pointer-events: none;
+}
+
+.searchable-options-list {
+    max-height: 210px;
+    overflow-y: auto;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.searchable-options-list::-webkit-scrollbar {
+    width: 5px;
+}
+.searchable-options-list::-webkit-scrollbar-thumb {
+    background: #E5E7EB;
+    border-radius: 4px;
+}
+
+.searchable-option-item {
+    padding: 9px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #1F2937;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.15s ease;
+}
+
+.searchable-option-item:hover,
+.searchable-option-item.highlighted {
+    background: #FFF7ED;
+    color: #EA580C;
+    font-weight: 600;
+}
+
+.searchable-option-item.selected {
+    background: #F97316;
+    color: #FFFFFF;
+    font-weight: 700;
+}
+
+.searchable-no-results {
+    padding: 14px 12px;
+    text-align: center;
+    color: #6B7280;
+    font-size: 12.5px;
+    font-style: italic;
+}
+
+/* Custom extra input for "Other" choice */
+.other-input-container {
+    margin-top: 8px;
+    display: none;
+}
+
+/* Inline Validation Messages */
+.field-error-text {
+    font-size: 12px;
+    font-weight: 600;
+    color: #DC2626;
+    display: none;
+    margin-top: 2px;
+}
+
+.field-error-text i {
+    margin-right: 4px;
+}
+
+.field-hint-text {
+    font-size: 11.5px;
+    color: #6B7280;
+    margin-top: 2px;
+}
+
+/* Section Divider */
+.form-section-divider {
+    height: 1px;
+    background: #E5E7EB;
+    margin: 10px 0 24px 0;
+}
+
+/* Insurance Expiry Badge Warning */
+.insurance-warning-badge {
+    display: none;
+    align-items: center;
+    gap: 6px;
+    margin-top: 4px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11.5px;
+    font-weight: 700;
+    background: #FEF2F2;
+    color: #DC2626;
+    border: 1px solid #FECACA;
+}
+
+/* ==========================================================================
+   SECTION 3: VEHICLE PHOTOS UPLOAD AREA
+   ========================================================================== */
+.photos-upload-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 6px;
+    flex-wrap: wrap;
+}
+
+.upload-dropzone {
+    width: 230px;
+    min-width: 230px;
+    border: 2px dashed #D1D5DB;
+    border-radius: 14px;
+    background: #F9FAFB;
+    padding: 12px 14px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload-dropzone:hover,
+.upload-dropzone.dragover {
+    border-color: #F97316;
+    background: #FFF7ED;
+    transform: translateY(-2px);
+}
+
+.upload-cloud-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(249, 115, 22, 0.12);
+    color: #F97316;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.upload-primary-text {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #1F2937;
+    margin-bottom: 2px;
+}
+
+.upload-sub-text {
+    font-size: 10.5px;
+    color: #6B7280;
+}
+
+/* Photo Previews Stack */
+.photo-previews-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 12px;
+    align-items: center;
+    overflow-x: auto;
+}
+
+.preview-card-item {
+    width: 110px;
+    height: 82px;
+    min-width: 110px;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    border: 1.5px solid #E5E7EB;
+    background: #F3F4F6;
+    animation: previewFadeIn 0.25s ease;
+}
+
+@keyframes previewFadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.preview-thumbnail-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.btn-remove-photo {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #DC2626;
+    color: #FFFFFF;
+    border: none;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, background-color 0.2s;
+}
+
+.btn-remove-photo:hover {
+    transform: scale(1.15);
+    background: #B91C1C;
+}
+
+.preview-empty-hint {
+    color: #9CA3AF;
+    font-size: 12.5px;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+}
+
+/* ==========================================================================
+   BOTTOM ACTION BUTTONS (Cancel & Save Vehicle)
+   ========================================================================== */
+.form-actions-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid #E5E7EB;
+    gap: 16px;
+}
+
+.btn-cancel-vehicle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: #FFFFFF;
+    border: 2px solid #F97316;
+    color: #F97316;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-cancel-vehicle:hover {
+    background: #FFF7ED;
+    color: #EA580C;
+    border-color: #EA580C;
+    transform: translateY(-1px);
+}
+
+.btn-save-vehicle {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 36px;
+    background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+    border: none;
+    color: #FFFFFF;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 15.5px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(249, 115, 22, 0.35);
+    transition: all 0.25s ease;
+}
+
+.btn-save-vehicle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(249, 115, 22, 0.45);
+    background: linear-gradient(135deg, #FB923C 0%, #EA580C 100%);
+}
+
+.btn-save-vehicle:disabled {
+    opacity: 0.75;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* ==========================================================================
+   CALENDAR YEAR SELECTION PICKER COMPONENT
+   ========================================================================== */
+.calendar-year-picker {
+    position: relative;
+    width: 100%;
+}
+
+.calendar-year-trigger {
+    width: 100%;
+    height: 42px;
+    background-color: #F9FAFB;
+    border: 1.5px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 0 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1F2937;
+    font-family: inherit;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+}
+
+.calendar-year-trigger .placeholder-text {
+    color: #9CA3AF;
+    font-weight: 500;
+}
+
+.calendar-year-trigger:focus,
+.calendar-year-picker.open .calendar-year-trigger {
+    background-color: #FFFFFF;
+    border-color: #F97316;
+    box-shadow: 0 0 0 3.5px rgba(249, 115, 22, 0.16);
+}
+
+.calendar-year-trigger.is-valid {
+    border-color: #16A34A;
+    background-color: #FFFFFF;
+}
+
+.calendar-year-trigger.is-invalid {
+    border-color: #DC2626;
+    background-color: #FFF5F5;
+}
+
+.calendar-year-trigger .trigger-calendar-icon {
+    color: #F97316;
+    font-size: 14px;
+    pointer-events: none;
+    transition: transform 0.2s ease;
+}
+
+.calendar-year-popover {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    width: 290px;
+    background: #FFFFFF;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 14px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    z-index: 1050;
+    padding: 12px 14px;
+    display: none;
+    animation: dropdownFadeIn 0.2s ease;
+}
+
+.calendar-year-picker.open .calendar-year-popover {
+    display: block;
+}
+
+.year-picker-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #F1F5F9;
+}
+
+.year-decade-title {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #0F172A;
+    letter-spacing: -0.2px;
+}
+
+.year-nav-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    border: 1px solid #E2E8F0;
+    background: #F8FAFC;
+    color: #4B5563;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 11px;
+    transition: all 0.18s ease;
+}
+
+.year-nav-btn:hover {
+    background: #FFF7ED;
+    color: #F97316;
+    border-color: #FED7AA;
+}
+
+.year-picker-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.year-cell {
+    padding: 8px 4px;
+    border-radius: 8px;
+    border: 1.5px solid transparent;
+    background: #F8FAFC;
+    color: #334155;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    user-select: none;
+}
+
+.year-cell:hover {
+    background: #FFEDD5;
+    color: #C2410C;
+    border-color: #FDBA74;
+}
+
+.year-cell.selected {
+    background: linear-gradient(135deg, #F97316 0%, #EA580C 100%) !important;
+    color: #FFFFFF !important;
+    font-weight: 800;
+    border-color: #C2410C !important;
+    box-shadow: 0 2px 6px rgba(249, 115, 22, 0.35);
+}
+
+.year-cell.current-year {
+    border-color: #F97316;
+    color: #EA580C;
+    font-weight: 700;
+}
+
+.year-cell.other-decade {
+    color: #94A3B8;
+    background: transparent;
+}
+
+.year-cell.disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    pointer-events: none;
+    background: #F1F5F9;
+    color: #94A3B8;
+}
+
+.year-picker-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 8px;
+    border-top: 1px solid #F1F5F9;
+}
+
+.btn-picker-current {
+    background: #FFF7ED;
+    color: #EA580C;
+    border: 1px solid #FFEDD5;
+    border-radius: 8px;
+    padding: 5px 12px;
+    font-size: 11.5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.18s ease;
+}
+
+.btn-picker-current:hover {
+    background: #F97316;
+    color: #FFFFFF;
+    border-color: #F97316;
+}
+
+.field-hint-text {
+    font-size: 11px;
+    color: #6B7280;
+    font-weight: 500;
+    margin-top: 3px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.field-hint-text i {
+    color: #9CA3AF;
+    font-size: 11px;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1200px) {
+    .add-vehicle-layout-grid {
+        grid-template-columns: 280px 1fr;
+        gap: 20px;
+    }
+
+    .form-fields-grid-3,
+    .form-fields-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .add-vehicle-layout-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vehicle-info-panel {
+        position: static;
+        width: 100%;
+    }
+
+    .photos-upload-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 680px) {
+    .add-vehicle-main-card {
+        padding: 20px 16px;
+        border-radius: 18px;
+    }
+
+    .vehicle-form-card {
+        padding: 20px 16px;
+    }
+
+    .form-fields-grid-3,
+    .form-fields-grid-4 {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .form-actions-footer {
+        flex-direction: column-reverse;
+    }
+
+    .btn-cancel-vehicle,
+    .btn-save-vehicle {
+        width: 100%;
+        justify-content: center;
+    }
+}

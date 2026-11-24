@@ -1,0 +1,733 @@
+/* ==========================================================================
+   ADMIN SERVICE REQUESTS STYLESHEET
+   On Road Vehicle Breakdown Assistance - Admin Module
+   Matches exact reference design: media_1793794502949_1de506c3.jpg
+   Theme: Zero-Blue Strict Palette (#F97316, #EA580C, #111827, #1F2937, #F5F7FA)
+   ========================================================================== */
+
+/* Main canvas */
+.sr-page-canvas {
+    background-color: #FFFFFF !important;
+    border-radius: 20px !important;
+    margin: 14px 18px 20px 18px !important;
+    padding: 20px 20px !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25) !important;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* 1. Hero Banner */
+.sr-hero-banner-container {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    background: #111827;
+    position: relative;
+    line-height: 0;
+}
+
+.sr-hero-banner-container img {
+    width: 100%;
+    height: auto;
+    max-height: 195px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: 20px;
+}
+
+/* 2. Middle Row: 3-Column Analytics Grid */
+.sr-analytics-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr 0.95fr;
+    gap: 16px;
+    margin-bottom: 20px;
+    align-items: stretch;
+}
+
+/* 2A. Left Column: 5 Stat Cards in 2 Sub-rows */
+.sr-stats-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sr-stats-row-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.sr-stats-row-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.sr-stat-card {
+    border-radius: 14px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    border: 1px solid transparent;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.sr-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.sr-stat-card.card-total {
+    background: #FFF7ED;
+    border-color: #FED7AA;
+}
+
+.sr-stat-card.card-pending {
+    background: #FEFCE8;
+    border-color: #FEF08A;
+}
+
+.sr-stat-card.card-progress {
+    background: #EFF6FF;
+    border-color: #DBEAFE;
+}
+
+.sr-stat-card.card-completed {
+    background: #F0FDF4;
+    border-color: #BBF7D0;
+}
+
+.sr-stat-card.card-cancelled {
+    background: #FEF2F2;
+    border-color: #FECACA;
+}
+
+.sr-stat-icon-wrap {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+}
+
+.sr-stat-card.card-total .sr-stat-icon-wrap {
+    background: #FFEDD5;
+    color: #EA580C;
+}
+
+.sr-stat-card.card-pending .sr-stat-icon-wrap {
+    background: #FEF9C3;
+    color: #D97706;
+}
+
+.sr-stat-card.card-progress .sr-stat-icon-wrap {
+    background: #DBEAFE;
+    color: #2563EB;
+}
+
+.sr-stat-card.card-completed .sr-stat-icon-wrap {
+    background: #DCFCE7;
+    color: #16A34A;
+}
+
+.sr-stat-card.card-cancelled .sr-stat-icon-wrap {
+    background: #FEE2E2;
+    color: #DC2626;
+}
+
+.sr-stat-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    flex: 1;
+}
+
+.sr-stat-label {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #4B5563;
+    line-height: 1.2;
+}
+
+.sr-stat-val-group {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-top: 3px;
+}
+
+.sr-stat-value {
+    font-size: 20px;
+    font-weight: 800;
+    color: #111827;
+    line-height: 1;
+}
+
+.sr-stat-badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.sr-stat-badge.badge-green {
+    background: #DCFCE7;
+    color: #166534;
+}
+
+.sr-stat-badge.badge-red {
+    background: #FEE2E2;
+    color: #991B1B;
+}
+
+/* 2B. Center Column: Service Requests Trend Chart */
+.sr-trend-card {
+    background: linear-gradient(180deg, #111827 0%, #1F2937 100%);
+    border-radius: 16px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.sr-dark-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.sr-dark-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #FFFFFF;
+    font-size: 13.5px;
+    font-weight: 700;
+}
+
+.sr-dark-title-wrap i {
+    color: #F97316;
+    font-size: 14px;
+}
+
+.sr-dropdown-dark {
+    background: #1E293B;
+    color: #E2E8F0;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    cursor: pointer;
+    outline: none;
+}
+
+.sr-chart-svg-wrap {
+    width: 100%;
+    height: 120px;
+    position: relative;
+}
+
+/* 2C. Right Column: Requests by Status Donut Chart */
+.sr-donut-card {
+    background: linear-gradient(180deg, #111827 0%, #1F2937 100%);
+    border-radius: 16px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.sr-donut-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 0;
+    gap: 12px;
+}
+
+.sr-donut-svg-wrap {
+    width: 95px;
+    height: 95px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.sr-donut-center-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    pointer-events: none;
+}
+
+.sr-donut-center-num {
+    font-size: 17px;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.1;
+}
+
+.sr-donut-center-lbl {
+    font-size: 9px;
+    font-weight: 600;
+    color: #9CA3AF;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sr-donut-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.sr-legend-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 11px;
+}
+
+.sr-legend-left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #E2E8F0;
+    font-weight: 500;
+}
+
+.sr-legend-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.sr-legend-right {
+    color: #9CA3AF;
+    font-weight: 600;
+}
+
+/* 3. Main Card (Tabs + Filter + Table) */
+.sr-main-card {
+    background: #FFFFFF;
+    border-radius: 18px;
+    border: 1px solid #E5E7EB;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+    padding: 18px 20px;
+    margin-bottom: 24px;
+}
+
+/* 3A. Tabs Bar & Export/Print */
+.sr-tabs-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.sr-tabs-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.sr-tab-pill {
+    padding: 8px 18px;
+    border-radius: 9999px;
+    font-size: 13.5px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid #E5E7EB;
+    background: #FFFFFF;
+    color: #4B5563;
+    transition: all 0.15s ease;
+}
+
+.sr-tab-pill:hover {
+    background: #F9FAFB;
+    border-color: #D1D5DB;
+    color: #111827;
+}
+
+.sr-tab-pill.active {
+    background: #F97316;
+    border-color: #F97316;
+    color: #FFFFFF;
+    box-shadow: 0 2px 6px rgba(249, 115, 22, 0.3);
+}
+
+.sr-tabs-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sr-btn-action-outline {
+    background: #FFFFFF;
+    border: 1px solid #D1D5DB;
+    color: #374151;
+    border-radius: 9px;
+    padding: 7px 14px;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s ease;
+}
+
+.sr-btn-action-outline:hover {
+    background: #F3F4F6;
+    border-color: #9CA3AF;
+    color: #111827;
+}
+
+/* 3B. Filter Toolbar */
+.sr-filter-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.sr-search-input-wrap {
+    position: relative;
+    flex: 1.5;
+    min-width: 170px;
+}
+
+.sr-search-input-wrap i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9CA3AF;
+    font-size: 13.5px;
+}
+
+.sr-search-input {
+    width: 100%;
+    height: 42px;
+    border-radius: 9px;
+    border: 1px solid #E5E7EB;
+    background: #FFFFFF;
+    padding: 0 10px 0 34px;
+    font-size: 13px;
+    color: #1F2937;
+    outline: none;
+    transition: border-color 0.15s ease;
+}
+
+.sr-search-input:focus {
+    border-color: #F97316;
+    box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.15);
+}
+
+.sr-select-wrap {
+    position: relative;
+    flex: 0.95;
+    min-width: 115px;
+}
+
+.sr-select-wrap i {
+    position: absolute;
+    left: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6B7280;
+    font-size: 13px;
+    pointer-events: none;
+}
+
+.sr-select-ctrl {
+    width: 100%;
+    height: 42px;
+    border-radius: 9px;
+    border: 1px solid #E5E7EB;
+    background: #FFFFFF;
+    padding: 0 24px 0 32px;
+    font-size: 13px;
+    color: #1F2937;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 13px;
+}
+
+.sr-date-input-wrap {
+    position: relative;
+    flex: 0.8;
+    min-width: 105px;
+}
+
+.sr-date-input-wrap i {
+    position: absolute;
+    left: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6B7280;
+    font-size: 13px;
+    pointer-events: none;
+}
+
+.sr-date-ctrl {
+    width: 100%;
+    height: 42px;
+    border-radius: 9px;
+    border: 1px solid #E5E7EB;
+    background: #FFFFFF;
+    padding: 0 8px 0 32px;
+    font-size: 13px;
+    color: #1F2937;
+    outline: none;
+}
+
+.sr-btn-search {
+    background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+    border: none;
+    color: #FFFFFF;
+    border-radius: 9px;
+    height: 42px;
+    padding: 0 18px;
+    font-size: 13.5px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    box-shadow: 0 2px 6px rgba(249, 115, 22, 0.3);
+    transition: all 0.15s ease;
+}
+
+.sr-btn-search:hover {
+    filter: brightness(1.06);
+    transform: translateY(-1px);
+}
+
+.sr-btn-reset {
+    background: #FFFFFF;
+    border: 1px solid #D1D5DB;
+    color: #4B5563;
+    border-radius: 9px;
+    height: 42px;
+    padding: 0 16px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    text-decoration: none;
+    transition: all 0.15s ease;
+}
+
+.sr-btn-reset:hover {
+    background: #F3F4F6;
+    color: #111827;
+}
+
+/* 3C. Custom Table Layout (10 Columns) */
+.sr-table-responsive {
+    width: 100%;
+    overflow-x: hidden; /* Fits table cleanly without horizontal scrollbar */
+}
+
+.sr-custom-table {
+    width: 100%;
+    table-layout: auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 13px;
+}
+
+.sr-custom-table thead tr th {
+    background: #1E293B;
+    color: #FFFFFF;
+    font-size: 12.5px;
+    font-weight: 700;
+    text-transform: none;
+    padding: 10px 5px;
+    border: none;
+    line-height: 1.3;
+    vertical-align: middle;
+}
+
+.sr-custom-table thead tr th:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    text-align: center;
+}
+
+.sr-custom-table thead tr th:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: center;
+}
+
+.sr-custom-table tbody tr {
+    border-bottom: 1px solid #F1F5F9;
+    transition: background 0.15s ease;
+}
+
+.sr-custom-table tbody tr:hover {
+    background: #FFFBF5;
+}
+
+.sr-custom-table tbody tr td {
+    padding: 9px 5px;
+    vertical-align: middle;
+    color: #1F2937;
+    border-bottom: 1px solid #F1F5F9;
+    font-size: 13px;
+}
+
+/* Pill Badges in Table */
+.sr-req-code-pill {
+    background: #FFF7ED;
+    color: #EA580C;
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 9999px;
+    border: 1px solid #FED7AA;
+    font-family: monospace, sans-serif;
+    letter-spacing: 0.2px;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+/* Issue Badges */
+.sr-issue-badge {
+    padding: 4px 10px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+}
+
+.sr-issue-blue {
+    background: #DBEAFE;
+    color: #1E40AF;
+}
+
+.sr-issue-purple {
+    background: #F3E8FF;
+    color: #6B21A8;
+}
+
+.sr-issue-orange {
+    background: #FFEDD5;
+    color: #C2410C;
+}
+
+.sr-issue-green {
+    background: #DCFCE7;
+    color: #166534;
+}
+
+.sr-issue-yellow {
+    background: #FEF9C3;
+    color: #854D0E;
+}
+
+/* Status Badges */
+.sr-status-pill-table {
+    padding: 4px 10px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+}
+
+.sr-status-pill-table.status-progress {
+    background: #DBEAFE;
+    color: #1D4ED8;
+    border: 1px solid #BFDBFE;
+}
+
+.sr-status-pill-table.status-pending {
+    background: #FEF3C7;
+    color: #92400E;
+    border: 1px solid #FDE68A;
+}
+
+.sr-status-pill-table.status-completed {
+    background: #DCFCE7;
+    color: #166534;
+    border: 1px solid #BBF7D0;
+}
+
+.sr-status-pill-table.status-cancelled {
+    background: #FEE2E2;
+    color: #991B1B;
+    border: 1px solid #FECACA;
+}
+
+/* Single Eye Button */
+.sr-btn-eye {
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+    border: 1px solid #E5E7EB;
+    background: #FFFFFF;
+    color: #374151;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.15s ease;
+}
+
+.sr-btn-eye:hover {
+    background: #FFF7ED;
+    border-color: #FED7AA;
+    color: #EA580C;
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .sr-analytics-grid {
+        grid-template-columns: 1fr;
+    }
+}

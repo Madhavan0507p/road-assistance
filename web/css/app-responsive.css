@@ -1,0 +1,1148 @@
+/* ==========================================================================
+   ON ROAD VEHICLE BREAKDOWN ASSISTANCE - UNIVERSAL MASTER RESPONSIVE SYSTEM
+   Strict Zero-Blue Palette:
+     Primary Orange:   #F97316
+     Dark Orange:      #EA580C
+     Dark Navy:        #1F2937 / #111827 / #0F172A
+     White:            #FFFFFF
+     Light Surface:    #F8FAFC / #F1F5F9
+     Border Gray:      #E2E8F0 / #E5E7EB
+     Muted Gray:       #64748B / #94A3B8
+     Success Green:    #16A34A / #DCFCE7
+     Warning Yellow:   #CA8A04 / #FEF9C3 / #FEF3C7
+     Danger Red:       #DC2626 / #FEF2F2 / #FEE2E2
+   Full Viewport Coverage: 320px to 2560px
+   Breakpoints: sm 480px, md 768px, lg 1024px, xl 1280px, 2xl 1536px
+   ========================================================================== */
+
+/* 1. GLOBAL SAFETY & RESETS */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img, svg, video, canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Fluid Typography Helpers */
+h1, .page-title, .topbar-title {
+    font-size: clamp(16px, 3.5vw, 24px);
+    line-height: 1.25;
+}
+
+h2, .section-title {
+    font-size: clamp(15px, 3vw, 20px);
+    line-height: 1.3;
+}
+
+/* ==========================================================================
+   2. TOPBAR / HEADER RESPONSIVENESS
+   ========================================================================== */
+.top-header,
+.topbar,
+.admin-topbar,
+.mech-topbar,
+.user-topbar,
+.user-top-navbar,
+.mech-top-navbar,
+header.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+/* Hamburger Buttons (Hidden on desktop, visible on mobile/tablet) */
+.hamburger-btn,
+.btn-sidebar-toggle,
+#menuToggleBtn,
+#mechSidebarToggle,
+#userSidebarToggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 10px;
+    background: #1F2937;
+    color: #FFFFFF;
+    border: 1px solid #374151;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.hamburger-btn:hover,
+.btn-sidebar-toggle:hover {
+    background: #F97316;
+    border-color: #F97316;
+    color: #FFFFFF;
+}
+
+@media (max-width: 1023.98px) {
+    .hamburger-btn,
+    .btn-sidebar-toggle,
+    #menuToggleBtn,
+    #mechSidebarToggle,
+    #userSidebarToggle {
+        display: inline-flex !important;
+    }
+
+    .top-header,
+    .topbar,
+    .admin-topbar,
+    .mech-topbar,
+    .user-topbar,
+    header.header {
+        padding: 10px 14px !important;
+        min-height: 58px !important;
+        gap: 10px !important;
+    }
+
+    .header-left,
+    .topbar-left {
+        gap: 10px !important;
+        min-width: 0 !important;
+    }
+
+    .header-title-group h1,
+    .topbar-left h1,
+    .topbar-left h2 {
+        font-size: clamp(15px, 4vw, 19px) !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    .header-title-group p,
+    .topbar-subtitle,
+    .topbar-date,
+    .header-date-badge,
+    .profile-role,
+    .user-role,
+    .mech-role,
+    .user-info-text,
+    .admin-info-text,
+    .mech-info-text,
+    .user-display-name,
+    .user-display-role,
+    .admin-display-name,
+    .admin-display-role,
+    .profile-chevron,
+    .search-wrapper,
+    .topbar-center {
+        display: none !important;
+    }
+
+    .navbar-right,
+    .topbar-right {
+        gap: 6px !important;
+    }
+
+    .btn-user-profile,
+    .btn-admin-profile,
+    .btn-mech-profile,
+    .user-profile-wrapper,
+    .user-profile-btn {
+        width: auto !important;
+        min-width: 0 !important;
+        padding: 0 !important;
+        background: transparent !important;
+        border: none !important;
+    }
+
+    .topbar-brand img,
+    .brand-logo-img {
+        height: 28px !important;
+    }
+
+    .topbar-icon-badge {
+        width: 36px !important;
+        height: 36px !important;
+        min-width: 36px !important;
+        font-size: 16px !important;
+        border-radius: 8px !important;
+    }
+}
+
+/* ==========================================================================
+   3. SIDEBAR & OFFCANVAS DRAWER SYSTEM
+   - Desktop (>= 1024px):
+       * STRICT FIXED SIDEBAR ACROSS ALL MODULES:
+         - Admin: Fixed 260px sidebar from top: 0, 100vh
+         - User: Fixed 260px sidebar below 64px topbar, height calc(100vh - 64px)
+         - Mechanic: Fixed 260px sidebar below 72px topbar, height calc(100vh - 72px)
+         Zero scroll away! Never scrolls apart from that respected space!
+       * Main canvas sits strictly BESIDE the sidebar via margin-left: 260px
+         with zero overlay, zero underlapping, zero clipping
+   - Mobile & Tablet (< 1024px):
+       * Off-canvas drawer (translateX(-100%)), opens with hamburger toggle,
+         backdrop overlay, main canvas is 100% width
+   ========================================================================== */
+@media (min-width: 1024px) {
+    /* 1. Admin Module: Fixed 260px sidebar with offset main content */
+    .sidebar,
+    #adminSidebar {
+        width: 260px !important;
+        min-width: 260px !important;
+        max-width: 260px !important;
+        flex: 0 0 260px !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        bottom: 0 !important;
+        height: 100vh !important;
+        max-height: 100vh !important;
+        z-index: 1000 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        transform: none !important;
+        box-shadow: none !important;
+        background-color: #111827 !important;
+    }
+
+    .main-content,
+    .admin-main {
+        margin-left: 260px !important;
+        width: calc(100% - 260px) !important;
+        max-width: calc(100% - 260px) !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 2. Fixed Topbars at Desktop: Locked at Top */
+    .user-top-navbar {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 64px !important;
+        z-index: 1000 !important;
+        box-sizing: border-box !important;
+        background-color: #111827 !important;
+    }
+
+    .mech-top-navbar {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 72px !important;
+        z-index: 1000 !important;
+        box-sizing: border-box !important;
+        background-color: #111827 !important;
+    }
+
+    /* 3. Outer Shells: Pushed down by topbar height */
+    .dashboard-shell {
+        display: block !important;
+        width: 100% !important;
+        margin-top: 64px !important;
+        min-height: calc(100vh - 64px) !important;
+        background-color: #111827 !important;
+        position: relative !important;
+        box-sizing: border-box !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-bottom: 0 !important;
+        padding: 0 !important;
+    }
+
+    .mech-dashboard-shell {
+        display: block !important;
+        width: 100% !important;
+        margin-top: 72px !important;
+        min-height: calc(100vh - 72px) !important;
+        background-color: #111827 !important;
+        position: relative !important;
+        box-sizing: border-box !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-bottom: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* 4. User & Mechanic Sidebars: Strictly FIXED to left below topbar, zero scroll away */
+    .user-sidebar,
+    #userSidebar {
+        position: fixed !important;
+        top: 64px !important;
+        left: 0 !important;
+        bottom: 0 !important;
+        width: 260px !important;
+        min-width: 260px !important;
+        max-width: 260px !important;
+        flex: 0 0 260px !important;
+        flex-shrink: 0 !important;
+        height: calc(100vh - 64px) !important;
+        max-height: calc(100vh - 64px) !important;
+        z-index: 990 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        transform: none !important;
+        box-shadow: none !important;
+        box-sizing: border-box !important;
+        border-right: 1px solid rgba(255, 255, 255, 0.05) !important;
+        background-color: #111827 !important;
+    }
+
+    .mech-sidebar,
+    #mechSidebar {
+        position: fixed !important;
+        top: 72px !important;
+        left: 0 !important;
+        bottom: 0 !important;
+        width: 260px !important;
+        min-width: 260px !important;
+        max-width: 260px !important;
+        flex: 0 0 260px !important;
+        flex-shrink: 0 !important;
+        height: calc(100vh - 72px) !important;
+        max-height: calc(100vh - 72px) !important;
+        z-index: 990 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        transform: none !important;
+        box-shadow: none !important;
+        box-sizing: border-box !important;
+        border-right: 1px solid rgba(255, 255, 255, 0.06) !important;
+        background-color: #111827 !important;
+    }
+
+    /* 5. Main Canvases: Positioned strictly BESIDE the fixed sidebar via margin-left: 260px */
+    .main-dashboard-canvas {
+        margin-left: 260px !important;
+        width: calc(100% - 260px) !important;
+        max-width: calc(100% - 260px) !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+        position: relative !important;
+        z-index: 1 !important;
+        background-color: #FFFFFF !important;
+        border-top-left-radius: 24px !important;
+        min-height: calc(100vh - 64px) !important;
+    }
+
+    .mech-main-canvas {
+        margin-left: 260px !important;
+        margin-right: 20px !important;
+        margin-top: 16px !important;
+        margin-bottom: 20px !important;
+        width: calc(100% - 260px - 20px) !important;
+        max-width: calc(100% - 260px - 20px) !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+        position: relative !important;
+        z-index: 1 !important;
+        background-color: #FFFFFF !important;
+        border-radius: 24px !important;
+        min-height: calc(100vh - 72px - 36px) !important;
+    }
+
+    /* Backdrops hidden on desktop */
+    .sidebar-backdrop,
+    .mech-sidebar-backdrop,
+    .user-sidebar-backdrop,
+    .mobile-drawer-header {
+        display: none !important;
+    }
+}
+
+@media (max-width: 1023.98px) {
+    .sidebar,
+    .mech-sidebar,
+    .user-sidebar,
+    #adminSidebar,
+    #mechSidebar,
+    #userSidebar {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        bottom: 0 !important;
+        width: 280px !important;
+        min-width: 0 !important;
+        max-width: 85vw !important;
+        height: 100vh !important;
+        max-height: 100vh !important;
+        z-index: 99999 !important;
+        transform: translateX(-100%) !important;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        box-shadow: 4px 0 25px rgba(0, 0, 0, 0.5) !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+    }
+
+    .sidebar.open,
+    .mech-sidebar.open,
+    .user-sidebar.open,
+    #adminSidebar.open,
+    #mechSidebar.open,
+    #userSidebar.open,
+    .sidebar.show-sidebar,
+    .mech-sidebar.show-sidebar,
+    .user-sidebar.show-sidebar {
+        transform: translateX(0) !important;
+    }
+
+    .sidebar-backdrop,
+    .mech-sidebar-backdrop,
+    .user-sidebar-backdrop {
+        position: fixed !important;
+        inset: 0 !important;
+        background: rgba(15, 23, 42, 0.65) !important;
+        backdrop-filter: blur(3px) !important;
+        z-index: 99998 !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        transition: opacity 0.3s ease !important;
+    }
+
+    .sidebar-backdrop.active,
+    .sidebar-backdrop.show,
+    .mech-sidebar-backdrop.active,
+    .mech-sidebar-backdrop.show,
+    .user-sidebar-backdrop.active,
+    .user-sidebar-backdrop.show {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        display: block !important;
+    }
+
+    /* Mobile Sidebar Close Button */
+    .sidebar-close-btn {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        min-height: 36px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.08);
+        color: #F8FAFC;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        cursor: pointer;
+        font-size: 16px;
+        transition: all 0.2s ease;
+        margin-left: auto;
+    }
+
+    .sidebar-close-btn:hover {
+        background: #F97316;
+        border-color: #F97316;
+        color: #FFFFFF;
+    }
+
+    .mobile-drawer-header {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 16px 20px !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        flex-shrink: 0 !important;
+    }
+
+    .dashboard-shell,
+    .mech-dashboard-shell {
+        flex-direction: column !important;
+        min-height: auto !important;
+    }
+
+    .main-content,
+    .admin-main,
+    .main-dashboard-canvas,
+    .mech-main-canvas,
+    .mech-main-content,
+    .user-main-content,
+    .sr-page-canvas {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 14px 16px !important;
+        border-top-left-radius: 0 !important;
+        border-radius: 0 !important;
+        box-sizing: border-box !important;
+    }
+}
+
+/* ==========================================================================
+   4. STAT CARDS RESPONSIVE GRID
+   - Desktop (>= 1024px): 5 Columns
+   - Tablet (768px - 1023px): 3 Columns
+   - Mobile (< 768px): 2 Columns
+   - Small Mobile (< 360px): 1 Column
+   ========================================================================== */
+.sr-stats-grid,
+.dashboard-stats,
+.stats-container,
+.overview-cards,
+.stats-row,
+.stats-grid,
+.sr-stats-row-top,
+.sr-stats-row-bottom,
+.pr-stats-row,
+.ar-stats-row {
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 14px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+@media (max-width: 1200px) {
+    .sr-stats-grid,
+    .dashboard-stats,
+    .stats-container,
+    .overview-cards,
+    .stats-row,
+    .stats-grid,
+    .sr-stats-row-top,
+    .sr-stats-row-bottom,
+    .pr-stats-row,
+    .ar-stats-row {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 12px !important;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .sr-stats-grid,
+    .dashboard-stats,
+    .stats-container,
+    .overview-cards,
+    .stats-row,
+    .stats-grid,
+    .sr-stats-row-top,
+    .sr-stats-row-bottom,
+    .pr-stats-row,
+    .ar-stats-row {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+    }
+
+    .sr-stat-card,
+    .stat-card,
+    .pr-stat-card,
+    .ar-stat-card {
+        padding: 12px 10px !important;
+        min-width: 0 !important;
+        overflow: hidden !important;
+    }
+
+    .stat-number,
+    .stat-value,
+    .pr-stat-number,
+    .ar-stat-number {
+        font-size: 20px !important;
+    }
+
+    .stat-label,
+    .pr-stat-label,
+    .ar-stat-label {
+        font-size: 11px !important;
+    }
+}
+
+@media (max-width: 359.98px) {
+    .sr-stats-grid,
+    .dashboard-stats,
+    .stats-container,
+    .overview-cards,
+    .stats-row,
+    .stats-grid,
+    .sr-stats-row-top,
+    .sr-stats-row-bottom,
+    .pr-stats-row,
+    .ar-stats-row {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* ==========================================================================
+   5. CHARTS & ANALYTICS GRIDS
+   ========================================================================== */
+.sr-analytics-grid,
+.dashboard-charts-grid,
+.analytics-grid,
+.analytics-row {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 0.95fr) !important;
+    gap: 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.sr-analytics-grid > *,
+.dashboard-charts-grid > *,
+.analytics-grid > *,
+.analytics-row > *,
+.sr-stats-col,
+.sr-trend-card,
+.sr-donut-card {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.chart-card,
+.analytics-card,
+.donut-card,
+.trend-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+.chart-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+}
+
+@media (max-width: 1359.98px) {
+    .sr-analytics-grid,
+    .dashboard-charts-grid,
+    .analytics-grid,
+    .analytics-row {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
+
+    .chart-header select,
+    .chart-header .filter-select {
+        width: 100% !important;
+        margin-top: 6px !important;
+    }
+}
+
+/* User Dashboard Breakdown Card & Timeline Stepper Safety */
+.req-detail-subcard {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    align-items: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.subcard-left {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    flex: 1 1 200px !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+}
+
+.subcard-text {
+    min-width: 0 !important;
+    flex: 1 !important;
+}
+
+.subcard-meta {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+}
+
+.subcard-meta span {
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+}
+
+.subcard-right {
+    flex: 0 0 auto !important;
+}
+
+.timeline-stepper {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+}
+
+/* Homepage Story Scene Mobile Typography & Layout Safety */
+@media (max-width: 600px) {
+    .story-scene-container {
+        padding: 0 12px !important;
+        box-sizing: border-box !important;
+    }
+
+    .story-heading {
+        font-size: clamp(20px, 6.5vw, 26px) !important;
+        overflow-wrap: break-word !important;
+        word-break: break-word !important;
+        max-width: 100% !important;
+        line-height: 1.2 !important;
+    }
+
+    .story-subtitle {
+        font-size: 13.5px !important;
+        overflow-wrap: break-word !important;
+        max-width: 100% !important;
+        line-height: 1.4 !important;
+    }
+
+    .scene-tag {
+        font-size: 11px !important;
+        letter-spacing: 0.5px !important;
+    }
+
+    .scene-badge-row {
+        flex-wrap: wrap !important;
+        gap: 6px !important;
+    }
+
+    .scene-cta-row {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 10px !important;
+    }
+
+    .scene-cta-row a {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+}
+
+/* ==========================================================================
+   6. TABLE TO VERTICAL CARD LIST SYSTEM (< 768px)
+   Matches Requirement 3:
+   - On Desktop (>= 768px): Normal Table View
+   - On Mobile (< 768px): Vertical Card List with Header, Body, Divider, Footer
+   ========================================================================== */
+@media (min-width: 768px) {
+    .responsive-mobile-cards-container {
+        display: none !important;
+    }
+}
+
+@media (max-width: 767.98px) {
+    /* Hide the horizontal desktop table on mobile */
+    table.sr-custom-table,
+    table.sr-data-table,
+    table.mech-data-table,
+    table.pr-data-table,
+    table.ar-data-table,
+    table.sh-data-table,
+    table.sh-table,
+    table.user-table,
+    table.blocked-table,
+    table.approval-table,
+    table.recent-requests-table {
+        display: none !important;
+    }
+
+    /* Display the generated Vertical Cards Container */
+    .responsive-mobile-cards-container {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 14px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* The Vertical Record Card */
+    .mobile-table-card {
+        background: #FFFFFF !important;
+        border: 1px solid #E2E8F0 !important;
+        border-radius: 16px !important;
+        padding: 16px !important;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+    }
+
+    .mobile-table-card:hover {
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08) !important;
+        border-color: #FED7AA !important;
+    }
+
+    /* Card Header */
+    .mobile-card-header {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 12px !important;
+        width: 100% !important;
+    }
+
+    .mobile-card-header-left {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2px !important;
+        min-width: 0 !important;
+        flex: 1 !important;
+    }
+
+    .mobile-card-id {
+        font-size: 11px !important;
+        font-weight: 700 !important;
+        color: #EA580C !important;
+        letter-spacing: 0.3px !important;
+        font-family: monospace, sans-serif !important;
+        text-transform: uppercase !important;
+    }
+
+    .mobile-card-title-row {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        min-width: 0 !important;
+    }
+
+    .mobile-card-icon {
+        width: 28px !important;
+        height: 28px !important;
+        border-radius: 50% !important;
+        background: #FFF7ED !important;
+        border: 1px solid #FED7AA !important;
+        color: #F97316 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 12px !important;
+        flex-shrink: 0 !important;
+    }
+
+    .mobile-card-title {
+        font-size: 14.5px !important;
+        font-weight: 700 !important;
+        color: #1F2937 !important;
+        margin: 0 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    .mobile-card-status {
+        flex-shrink: 0 !important;
+    }
+
+    /* Thin Divider Lines */
+    .mobile-card-divider {
+        height: 1px !important;
+        background: #F1F5F9 !important;
+        width: 100% !important;
+        margin: 2px 0 !important;
+    }
+
+    /* Card Body Detail Rows */
+    .mobile-card-body {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+        width: 100% !important;
+    }
+
+    .mobile-card-row {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: flex-start !important;
+        gap: 12px !important;
+        font-size: 12.5px !important;
+        width: 100% !important;
+    }
+
+    .mobile-card-label {
+        font-weight: 600 !important;
+        color: #64748B !important;
+        font-size: 11.5px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+        flex-shrink: 0 !important;
+    }
+
+    .mobile-card-label i {
+        color: #F97316 !important;
+        font-size: 12px !important;
+        width: 14px !important;
+        text-align: center !important;
+    }
+
+    .mobile-card-value {
+        font-weight: 600 !important;
+        color: #1F2937 !important;
+        text-align: right !important;
+        word-break: break-word !important;
+        overflow-wrap: anywhere !important;
+        font-size: 12px !important;
+        flex: 1 !important;
+    }
+
+    /* Card Footer & Full-Width Action Buttons */
+    .mobile-card-footer {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+        padding-top: 4px !important;
+        width: 100% !important;
+    }
+
+    .mobile-action-btn,
+    .mobile-card-footer .btn-table-action,
+    .mobile-card-footer .sr-btn-eye,
+    .mobile-card-footer .btn-pr-action {
+        width: 100% !important;
+        min-height: 44px !important;
+        height: 44px !important;
+        border-radius: 10px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        font-size: 13px !important;
+        font-weight: 700 !important;
+        text-decoration: none !important;
+        cursor: pointer !important;
+        box-sizing: border-box !important;
+    }
+
+    .mobile-no-records {
+        padding: 30px 16px !important;
+        text-align: center !important;
+        color: #64748B !important;
+        background: #F8FAFC !important;
+        border-radius: 12px !important;
+        font-size: 13.5px !important;
+        font-weight: 600 !important;
+    }
+}
+
+/* ==========================================================================
+   7. MODAL / DIALOG RESPONSIVENESS
+   - Max-width: 95vw, Max-height: 90vh, Internal scroll, Never cut off
+   ========================================================================== */
+.modal-overlay,
+.modal-backdrop,
+.sr-modal-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    background: rgba(15, 23, 42, 0.7) !important;
+    backdrop-filter: blur(4px) !important;
+    display: none;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 999999 !important;
+    padding: 14px !important;
+    box-sizing: border-box !important;
+}
+
+.modal-overlay.active,
+.modal-backdrop.active,
+.sr-modal-overlay.active,
+.modal-overlay.show,
+.modal-backdrop.show,
+.sr-modal-overlay.show {
+    display: flex !important;
+}
+
+.modal-content,
+.modal-box,
+.sr-modal,
+.sr-modal-box,
+.custom-modal {
+    width: 100% !important;
+    max-width: 720px !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    border-radius: 18px !important;
+    padding: 20px !important;
+    margin: auto !important;
+    background: #FFFFFF !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25) !important;
+}
+
+@media (max-width: 767.98px) {
+    .modal-content,
+    .modal-box,
+    .sr-modal,
+    .sr-modal-box,
+    .custom-modal {
+        max-width: 95vw !important;
+        max-height: 90vh !important;
+        padding: 16px !important;
+        border-radius: 14px !important;
+    }
+
+    .modal-grid-2col,
+    .modal-info-grid,
+    .modal-fields-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+
+    .modal-footer {
+        flex-direction: column-reverse !important;
+        gap: 8px !important;
+    }
+
+    .modal-footer button,
+    .modal-footer a {
+        width: 100% !important;
+        min-height: 44px !important;
+    }
+}
+
+/* ==========================================================================
+   8. FORMS & INPUTS RESPONSIVENESS
+   - 2-Column collapses to 1-Column on mobile
+   - 44px minimum touch target
+   ========================================================================== */
+@media (max-width: 767.98px) {
+    .form-grid-2col,
+    .form-row,
+    .profile-grid-2col,
+    .vehicle-form-grid,
+    .form-fields-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 14px !important;
+        width: 100% !important;
+    }
+
+    .form-group,
+    .field-group,
+    .input-group {
+        width: 100% !important;
+    }
+
+    .form-control,
+    .field-input,
+    .sr-input,
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"],
+    input[type="number"],
+    select,
+    textarea {
+        width: 100% !important;
+        min-height: 44px !important;
+        font-size: 14px !important;
+        box-sizing: border-box !important;
+    }
+
+    .btn-submit,
+    .btn-primary,
+    .btn-action,
+    .btn-hero {
+        min-height: 44px !important;
+        width: 100% !important;
+        font-size: 14px !important;
+    }
+}
+
+/* ==========================================================================
+   9. SEARCH BARS & FILTER TOOLBARS
+   ========================================================================== */
+@media (max-width: 767.98px) {
+    .sr-filter-bar,
+    .filter-toolbar,
+    .filter-bar,
+    .search-filter-container,
+    .sr-search-bar-row {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+        width: 100% !important;
+    }
+
+    .sr-filter-bar input,
+    .sr-filter-bar select,
+    .filter-toolbar input,
+    .filter-toolbar select {
+        width: 100% !important;
+        min-height: 44px !important;
+    }
+
+    .sr-btn-search,
+    .sr-btn-reset,
+    .btn-search,
+    .btn-filter {
+        width: 100% !important;
+        min-height: 44px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .sr-tabs-container,
+    .filter-tabs {
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        width: 100% !important;
+        padding-bottom: 6px !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+}
+
+/* ==========================================================================
+   10. HERO BANNERS & IMAGES
+   ========================================================================== */
+.hero-banner,
+.sr-hero-banner-container,
+.mech-hero-banner,
+.user-hero-banner {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    border-radius: 16px !important;
+    box-sizing: border-box !important;
+}
+
+.hero-banner img,
+.sr-hero-banner-container img,
+.mech-hero-banner img,
+.user-hero-banner img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 180px !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    border-radius: 16px !important;
+}
+
+@media (max-width: 767.98px) {
+    .hero-banner img,
+    .sr-hero-banner-container img,
+    .mech-hero-banner img,
+    .user-hero-banner img {
+        max-height: 130px !important;
+    }
+}

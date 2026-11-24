@@ -1,0 +1,1329 @@
+/* ==========================================================================
+   USER MODULE — REQUEST ASSISTANCE PAGE STYLESHEET
+   Project: On Road Vehicle Breakdown Assistance
+   Matching Reference Screenshot Exactly: media_1793768673347_1c1a291e.png
+   Colors: Primary Orange (#F97316), Charcoal (#1F2937), Dark (#111827), White (#FFFFFF)
+   ========================================================================== */
+
+/* Main Page Container Inside Dashboard Canvas */
+.request-assistance-container {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 10px 0 30px 0;
+}
+
+/* White Card Wrapper */
+.request-main-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+    border: 1px solid #F1F5F9;
+    padding: 28px 32px;
+}
+
+/* Header Bar: Title + Breadcrumb */
+.request-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #F1F5F9;
+}
+
+.request-title-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.request-icon-badge {
+    width: 48px;
+    height: 48px;
+    background: #FFF7ED;
+    border: 1.5px solid #FFEDD5;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F97316;
+    font-size: 22px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(249, 115, 22, 0.12);
+}
+
+.request-title-text h1 {
+    font-size: 24px;
+    font-weight: 800;
+    color: #111827;
+    letter-spacing: -0.4px;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.request-title-text h1 .accent-orange {
+    color: #F97316;
+}
+
+.request-title-text p {
+    font-size: 13px;
+    color: #6B7280;
+    font-weight: 500;
+    margin: 4px 0 0 0;
+}
+
+/* Breadcrumb */
+.request-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #6B7280;
+}
+
+.breadcrumb-link {
+    color: #4B5563;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.15s ease;
+}
+
+.breadcrumb-link:hover {
+    color: #F97316;
+}
+
+.breadcrumb-sep {
+    color: #9CA3AF;
+    font-size: 10px;
+}
+
+.breadcrumb-current {
+    color: #F97316;
+    font-weight: 700;
+}
+
+/* Main 2-Column Grid Layout */
+.request-grid-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 330px;
+    gap: 28px;
+    margin-top: 24px;
+    align-items: start;
+}
+
+/* Left Form Column */
+.request-form-col {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Step Section Layout */
+.form-step-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.step-section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.step-number-badge {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #F97316;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.step-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: #111827;
+    margin: 0;
+}
+
+.step-title .optional-badge {
+    font-size: 13px;
+    font-weight: 500;
+    color: #6B7280;
+    margin-left: 4px;
+}
+
+.step-subtitle {
+    font-size: 12px;
+    color: #6B7280;
+    margin: 0 0 10px 34px;
+    font-weight: 500;
+}
+
+.step-content-box {
+    margin-left: 34px;
+}
+
+/* Section 1: Vehicle Selection Row */
+.vehicle-select-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.vehicle-dropdown-wrapper {
+    position: relative;
+    flex: 1;
+}
+
+.vehicle-dropdown-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #F97316;
+    font-size: 16px;
+    pointer-events: none;
+}
+
+.vehicle-select-input {
+    width: 100%;
+    height: 48px;
+    padding: 0 40px 0 46px;
+    border-radius: 12px;
+    border: 1.5px solid #E5E7EB;
+    background: #FFFFFF;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1F2937;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    transition: all 0.2s ease;
+}
+
+.vehicle-select-input:focus {
+    border-color: #F97316;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.12);
+}
+
+.vehicle-dropdown-arrow {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6B7280;
+    font-size: 12px;
+    pointer-events: none;
+}
+
+.btn-add-vehicle {
+    height: 48px;
+    padding: 0 20px;
+    border-radius: 12px;
+    border: 1.5px solid #F97316;
+    background: #FFFFFF;
+    color: #F97316;
+    font-size: 13px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-add-vehicle:hover {
+    background: #FFF7ED;
+    border-color: #EA580C;
+    color: #EA580C;
+    transform: translateY(-1px);
+}
+
+/* Section 2: Service Issue 5x2 Grid */
+.issues-grid-5x2 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+}
+
+.issue-card {
+    position: relative;
+    background: #F9FAFB;
+    border: 1.5px solid #E5E7EB;
+    border-radius: 14px;
+    padding: 16px 8px 14px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    min-height: 94px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+}
+
+.issue-card:hover {
+    background: #FFFBF7;
+    border-color: #FDBA74;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.08);
+}
+
+.issue-card.selected {
+    background: #FFF7ED;
+    border: 2px solid #F97316;
+    box-shadow: 0 4px 14px rgba(249, 115, 22, 0.16);
+}
+
+.issue-card .selected-check-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #F97316;
+    color: #FFFFFF;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    box-shadow: 0 2px 6px rgba(249, 115, 22, 0.4);
+}
+
+.issue-card.selected .selected-check-badge {
+    display: flex;
+}
+
+.issue-card .issue-icon-wrap {
+    font-size: 26px;
+    color: #374151;
+    margin-bottom: 8px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+}
+
+.issue-card.selected .issue-icon-wrap {
+    color: #F97316;
+}
+
+.issue-card .issue-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #1F2937;
+    line-height: 1.25;
+    margin: 0;
+}
+
+.issue-card.selected .issue-label {
+    color: #111827;
+}
+
+/* Custom Issue Slide-down */
+.custom-issue-box {
+    margin-top: 12px;
+    background: #FFF7ED;
+    border: 1.5px solid #FFEDD5;
+    border-radius: 12px;
+    padding: 14px 18px;
+    display: none;
+    animation: fadeInSlide 0.25s ease;
+}
+
+.custom-issue-box.active {
+    display: block;
+}
+
+.custom-issue-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #EA580C;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.custom-issue-input {
+    width: 100%;
+    height: 42px;
+    border-radius: 8px;
+    border: 1.5px solid #FDBA74;
+    padding: 0 14px;
+    font-size: 13px;
+    outline: none;
+    background: #FFFFFF;
+    color: #1F2937;
+}
+
+.custom-issue-input:focus {
+    border-color: #F97316;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+}
+
+/* Section 3: Your Location Row */
+.location-control-row {
+    display: grid;
+    grid-template-columns: 165px minmax(0, 1fr) 220px;
+    gap: 12px;
+    align-items: stretch;
+}
+
+.location-buttons-col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn-loc-action {
+    height: 44px;
+    padding: 0 12px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.btn-loc-gps {
+    border: 1.5px solid #F97316;
+    background: #FFFFFF;
+    color: #F97316;
+}
+
+.btn-loc-gps:hover {
+    background: #FFF7ED;
+    border-color: #EA580C;
+    color: #EA580C;
+}
+
+.btn-loc-map {
+    border: 1.5px solid #D1D5DB;
+    background: #FFFFFF;
+    color: #374151;
+}
+
+.btn-loc-map:hover {
+    background: #F3F4F6;
+    border-color: #9CA3AF;
+}
+
+/* Center Interactive Map Box */
+.interactive-map-box {
+    position: relative;
+    height: 98px;
+    border-radius: 12px;
+    border: 1.5px solid #E5E7EB;
+    overflow: hidden;
+    background: #E5E7EB;
+}
+
+#leafletMapContainer {
+    width: 100%;
+    height: 100%;
+}
+
+.map-center-pin-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    pointer-events: none;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.map-center-pin-overlay i {
+    color: #DC2626;
+    font-size: 26px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+.map-controls-overlay {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    z-index: 1000;
+}
+
+.map-ctrl-btn {
+    width: 24px;
+    height: 24px;
+    background: #FFFFFF;
+    border: 1px solid #D1D5DB;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: #374151;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.map-fullscreen-btn {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    width: 24px;
+    height: 24px;
+    background: #FFFFFF;
+    border: 1px solid #D1D5DB;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: #374151;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Right Selected Location Card */
+.selected-location-card {
+    background: #FFF7ED;
+    border: 1.5px solid #FFEDD5;
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.selected-loc-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.selected-loc-header i {
+    color: #F97316;
+    font-size: 13px;
+}
+
+.selected-loc-header span {
+    font-size: 12px;
+    font-weight: 800;
+    color: #111827;
+}
+
+.selected-loc-address {
+    font-size: 12px;
+    font-weight: 600;
+    color: #374151;
+    line-height: 1.35;
+    margin: 6px 0 4px 0;
+}
+
+.selected-loc-bottom {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-edit-loc {
+    border: 1px solid #FDBA74;
+    background: #FFFFFF;
+    color: #EA580C;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.15s ease;
+}
+
+.btn-edit-loc:hover {
+    background: #FFEDD5;
+    border-color: #F97316;
+}
+
+/* Edit Location Inline Input */
+.loc-edit-input-box {
+    margin-top: 6px;
+    display: none;
+}
+
+.loc-edit-input-box.active {
+    display: flex;
+    gap: 6px;
+}
+
+.loc-edit-input {
+    flex: 1;
+    height: 30px;
+    border: 1px solid #F97316;
+    border-radius: 6px;
+    padding: 0 8px;
+    font-size: 11px;
+    outline: none;
+}
+
+.btn-save-loc {
+    height: 30px;
+    padding: 0 8px;
+    background: #F97316;
+    border: none;
+    border-radius: 6px;
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Section 4: Additional Details */
+.details-textarea-wrap {
+    position: relative;
+    width: 100%;
+}
+
+.details-textarea {
+    width: 100%;
+    height: 68px;
+    border-radius: 12px;
+    border: 1.5px solid #E5E7EB;
+    padding: 10px 14px;
+    font-family: inherit;
+    font-size: 13px;
+    color: #1F2937;
+    outline: none;
+    resize: none;
+    transition: all 0.2s ease;
+}
+
+.details-textarea:focus {
+    border-color: #F97316;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.12);
+}
+
+.char-counter-text {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 11px;
+    color: #9CA3AF;
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+/* Form Actions Row (Cancel + Submit) */
+.form-actions-row {
+    margin-left: 34px;
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn-cancel-request {
+    height: 46px;
+    padding: 0 24px;
+    border-radius: 12px;
+    border: 1.5px solid #F97316;
+    background: #FFFFFF;
+    color: #F97316;
+    font-size: 14px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-cancel-request:hover {
+    background: #FFF7ED;
+    border-color: #EA580C;
+    color: #EA580C;
+}
+
+.btn-submit-request {
+    height: 48px;
+    padding: 0 34px;
+    border-radius: 12px;
+    border: none;
+    background: #F97316;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(249, 115, 22, 0.35);
+    transition: all 0.2s ease;
+}
+
+.btn-submit-request:hover {
+    background: #EA580C;
+    box-shadow: 0 6px 18px rgba(234, 88, 12, 0.45);
+    transform: translateY(-1px);
+}
+
+.btn-submit-request:active {
+    transform: translateY(0);
+}
+
+.btn-submit-request:disabled {
+    background: #9CA3AF;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+/* ==========================================================================
+   RIGHT COLUMN: HOW IT WORKS + EMERGENCY SUPPORT
+   ========================================================================== */
+.request-info-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Card 1: How It Works */
+.how-it-works-card {
+    background: #FFFFFF;
+    border: 1.5px solid #F1F5F9;
+    border-radius: 18px;
+    padding: 22px 22px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+}
+
+.how-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.how-header i {
+    color: #F97316;
+    font-size: 20px;
+}
+
+.how-header h3 {
+    font-size: 18px;
+    font-weight: 800;
+    color: #111827;
+    margin: 0;
+}
+
+.how-steps-timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-left: 2px;
+}
+
+.how-steps-timeline::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    bottom: 14px;
+    width: 2px;
+    background: #FFEDD5;
+    z-index: 1;
+}
+
+.how-step-item {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    z-index: 2;
+}
+
+.how-step-badge {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #F97316;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(249, 115, 22, 0.3);
+}
+
+.how-step-text h4 {
+    font-size: 14px;
+    font-weight: 800;
+    color: #111827;
+    margin: 0;
+}
+
+.how-step-text p {
+    font-size: 12px;
+    color: #6B7280;
+    font-weight: 500;
+    margin: 3px 0 0 0;
+    line-height: 1.35;
+}
+
+/* Card 2: Emergency Support */
+.emergency-support-card {
+    background: #FFF7ED;
+    border: 1.5px solid #FFEDD5;
+    border-radius: 18px;
+    padding: 22px 20px 0 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(249, 115, 22, 0.05);
+}
+
+.emergency-header-flex {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.emergency-phone-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #DC2626;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.28);
+}
+
+.emergency-text-group h3 {
+    font-size: 17px;
+    font-weight: 800;
+    color: #DC2626;
+    margin: 0;
+}
+
+.emergency-text-group p {
+    font-size: 12px;
+    color: #6B7280;
+    font-weight: 500;
+    margin: 3px 0 0 0;
+    line-height: 1.3;
+}
+
+.btn-emergency-call {
+    margin-top: 16px;
+    height: 46px;
+    width: 100%;
+    background: #FFFFFF;
+    border: 1.5px solid #F97316;
+    border-radius: 12px;
+    color: #F97316;
+    font-size: 15px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(249, 115, 22, 0.08);
+}
+
+.btn-emergency-call:hover {
+    background: #F97316;
+    color: #FFFFFF;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.25);
+}
+
+.emergency-illustration-wrap {
+    margin-top: 14px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.emergency-truck-vector {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+/* Toast Message */
+.request-toast {
+    position: fixed;
+    top: 90px;
+    right: 24px;
+    z-index: 9999;
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    animation: toastSlideIn 0.3s ease;
+    max-width: 400px;
+}
+
+.request-toast.success {
+    background: #16A34A;
+    color: #FFFFFF;
+}
+
+.request-toast.error {
+    background: #DC2626;
+    color: #FFFFFF;
+}
+
+@keyframes toastSlideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1180px) {
+    .request-grid-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .request-info-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 900px) {
+    .issues-grid-5x2 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .location-control-row {
+        grid-template-columns: 1fr;
+    }
+
+    .interactive-map-box {
+        height: 140px;
+    }
+
+    .request-info-col {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .request-main-card {
+        padding: 20px 16px;
+    }
+
+    .step-subtitle,
+    .step-content-box,
+    .form-actions-row {
+        margin-left: 0;
+    }
+
+    .vehicle-select-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .issues-grid-5x2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .form-actions-row {
+        flex-direction: column-reverse;
+        gap: 12px;
+    }
+
+    .btn-cancel-request,
+    .btn-submit-request {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+
+/* ==========================================================================
+   NEW ENHANCEMENTS: Request Mode, Big Map & Address Geocoding
+   ========================================================================== */
+
+/* Request Mode Cards */
+.request-mode-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-bottom: 12px;
+}
+
+.request-mode-card {
+    position: relative;
+    background: #F8FAFC;
+    border: 2px solid #E2E8F0;
+    border-radius: 14px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+}
+
+.request-mode-card:hover {
+    background: #FFFBF7;
+    border-color: #FDBA74;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.08);
+}
+
+.request-mode-card.selected {
+    background: #FFF7ED;
+    border-color: #F97316;
+    box-shadow: 0 4px 14px rgba(249, 115, 22, 0.16);
+}
+
+.request-mode-card .mode-check-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #F97316;
+    color: #FFFFFF;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    box-shadow: 0 2px 6px rgba(249, 115, 22, 0.4);
+}
+
+.request-mode-card.selected .mode-check-badge {
+    display: flex;
+}
+
+.mode-icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #FFFFFF;
+    border: 1.5px solid #E2E8F0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #64748B;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.request-mode-card.selected .mode-icon-box {
+    background: #F97316;
+    border-color: #F97316;
+    color: #FFFFFF;
+}
+
+.mode-text-box {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.mode-title {
+    font-size: 14.5px;
+    font-weight: 800;
+    color: #1E293B;
+    margin: 0;
+}
+
+.request-mode-card.selected .mode-title {
+    color: #C2410C;
+}
+
+.mode-desc {
+    font-size: 12px;
+    color: #64748B;
+    margin: 0;
+    line-height: 1.35;
+}
+
+/* Broadcast Radius Selector */
+.radius-selector-card {
+    background: #FFF7ED;
+    border: 1px solid #FFEDD5;
+    border-radius: 12px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.radius-label-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #9A3412;
+}
+
+.radius-pills-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.radius-pill {
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: #FFFFFF;
+    border: 1.5px solid #FED7AA;
+    font-size: 12px;
+    font-weight: 700;
+    color: #78350F;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.radius-pill:hover {
+    border-color: #F97316;
+    background: #FFFBF7;
+}
+
+.radius-pill.active {
+    background: #F97316;
+    border-color: #F97316;
+    color: #FFFFFF;
+    box-shadow: 0 2px 8px rgba(249, 115, 22, 0.3);
+}
+
+/* Location Header Controls */
+.location-top-controls {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.btn-loc-gps-action {
+    height: 44px;
+    padding: 0 16px;
+    border-radius: 10px;
+    background: #F97316;
+    border: 1.5px solid #EA580C;
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(249, 115, 22, 0.25);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.btn-loc-gps-action:hover {
+    background: #EA580C;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.35);
+}
+
+.address-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.address-pin-icon {
+    position: absolute;
+    left: 14px;
+    color: #F97316;
+    font-size: 15px;
+    pointer-events: none;
+}
+
+.address-text-field {
+    width: 100%;
+    height: 44px;
+    background: #FFFFFF;
+    border: 1.5px solid #CBD5E1;
+    border-radius: 10px;
+    padding: 0 96px 0 38px;
+    font-size: 13.5px;
+    color: #0F172A;
+    outline: none;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.address-text-field:focus {
+    border-color: #F97316;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.14);
+}
+
+.btn-search-address {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    height: 36px;
+    padding: 0 14px;
+    border-radius: 8px;
+    background: #0F172A;
+    color: #FFFFFF;
+    border: none;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.btn-search-address:hover {
+    background: #334155;
+}
+
+.address-status-hint {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11.5px;
+    color: #64748B;
+    margin-top: 4px;
+}
+
+/* Big Map Container (300px) */
+.interactive-map-large-box {
+    position: relative;
+    height: 300px;
+    border-radius: 14px;
+    border: 1.5px solid #CBD5E1;
+    overflow: hidden;
+    background: #F1F5F9;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.interactive-map-large-box #leafletMapContainer {
+    width: 100%;
+    height: 100%;
+}
+
+.map-action-float-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    color: #334155;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+.map-action-float-btn:hover {
+    background: #F8FAFC;
+    color: #F97316;
+}
+
+.map-floating-badge {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(15, 23, 42, 0.85);
+    color: #FFFFFF;
+    backdrop-filter: blur(4px);
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 11.5px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 1000;
+}
+
+.map-floating-badge i {
+    color: #F97316;
+}
+
+@media (max-width: 768px) {
+    .request-mode-grid {
+        grid-template-columns: 1fr;
+    }
+    .location-top-controls {
+        grid-template-columns: 1fr;
+    }
+    .interactive-map-large-box {
+        height: 240px;
+    }
+}

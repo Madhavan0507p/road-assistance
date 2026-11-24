@@ -1,0 +1,676 @@
+
+        /* Theme Variables Definition */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            min-height: 100vh;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #111827;
+            color: #FFFFFF;
+            overflow-x: hidden;
+            background-image: url('${pageContext.request.contextPath}/images/user-login-hero-bg.jpg?v=2.0');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        /* Top Navigation Header for Back to Home */
+        .user-login-topbar {
+            width: 100%;
+            padding: 24px clamp(30px, 5.5vw, 90px) 0;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            position: relative;
+            z-index: 20;
+        }
+
+        .btn-back-home-top {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 20px;
+            background: rgba(17, 24, 39, 0.78);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(249, 115, 22, 0.45);
+            border-radius: 999px;
+            color: #FFFFFF;
+            font-size: 13.5px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+            cursor: pointer;
+        }
+
+        .btn-back-home-top i {
+            font-size: 14px;
+            color: #F97316;
+            transition: transform 0.25s ease;
+        }
+
+        .btn-back-home-top:hover {
+            background: linear-gradient(135deg, #F97316, #EA580C);
+            border-color: #F97316;
+            color: #FFFFFF;
+            transform: translateX(-4px);
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.45);
+        }
+
+        .btn-back-home-top:hover i {
+            color: #FFFFFF;
+            transform: translateX(-3px);
+        }
+
+        /* Full Screen Two-Column Page Layout matching Reference Screenshot */
+        .user-login-container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px clamp(30px, 5.5vw, 90px) 28px;
+            min-height: calc(100vh - 72px);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* =====================================================================
+           LEFT SECTION (55% Width) — Branding, Heading & 3 Feature Items
+           ===================================================================== */
+        .user-intro-col {
+            flex: 1;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            z-index: 5;
+            padding-right: 20px;
+        }
+
+        /* Top-Left Branding */
+        .brand-header-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            margin-bottom: clamp(28px, 4.5vh, 44px);
+            transition: transform 0.25s ease;
+        }
+
+        .brand-header-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .brand-logo-icon {
+            width: 58px;
+            height: 58px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #F97316, #EA580C);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: #FFFFFF;
+            box-shadow: 0 4px 18px rgba(249, 115, 22, 0.45);
+            flex-shrink: 0;
+        }
+
+        .brand-text-block {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .brand-name-main {
+            font-size: 19px;
+            font-weight: 800;
+            color: #FFFFFF;
+            letter-spacing: -0.2px;
+        }
+
+        .brand-name-sub {
+            font-size: 15px;
+            font-weight: 700;
+            color: #FFFFFF;
+            letter-spacing: 0.2px;
+        }
+
+        /* Main Heading */
+        .intro-heading-group {
+            margin-bottom: 8px;
+        }
+
+        .intro-title {
+            font-size: clamp(38px, 4.2vw, 56px);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+            margin: 0;
+        }
+
+        .intro-title .title-user {
+            color: #FFFFFF;
+        }
+
+        .intro-title .title-login {
+            color: #F97316;
+            margin-left: 10px;
+        }
+
+        .intro-underline {
+            width: 72px;
+            height: 5px;
+            background: #F97316;
+            border-radius: 3px;
+            margin: 14px 0 18px 0;
+        }
+
+        .intro-description {
+            font-size: clamp(14px, 1.15vw, 16.5px);
+            color: #E5E7EB;
+            line-height: 1.55;
+            max-width: 440px;
+            margin-bottom: clamp(28px, 4.2vh, 44px);
+        }
+
+        /* 3 Feature Items Vertical Stack matching Reference Screenshot */
+        .user-features-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .feature-item-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            cursor: default;
+            transition: transform 0.25s ease;
+        }
+
+        .feature-item-row:hover {
+            transform: translateX(4px);
+        }
+
+        .feature-icon-box {
+            width: 54px;
+            height: 54px;
+            min-width: 54px;
+            border-radius: 14px;
+            background: rgba(249, 115, 22, 0.16);
+            border: 1px solid rgba(249, 115, 22, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #F97316;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            transition: all 0.25s ease;
+        }
+
+        .feature-item-row:hover .feature-icon-box {
+            background: rgba(249, 115, 22, 0.28);
+            border-color: #F97316;
+            transform: scale(1.06);
+            box-shadow: 0 6px 18px rgba(249, 115, 22, 0.4);
+        }
+
+        .feature-text-block {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.35;
+        }
+
+        .feature-title {
+            font-size: 16.5px;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 3px;
+        }
+
+        .feature-desc {
+            font-size: 13.5px;
+            color: #9CA3AF;
+            font-weight: 500;
+        }
+
+        /* =====================================================================
+           RIGHT SECTION (40% Width) — Large White Login Form Card
+           ===================================================================== */
+        .user-login-card-col {
+            flex: 0 0 clamp(400px, 40vw, 560px);
+            display: flex;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .user-login-card {
+            width: 100%;
+            background: #FFFFFF;
+            border-radius: 26px;
+            padding: 24px clamp(22px, 3vw, 34px);
+            box-shadow: 0 24px 65px rgba(0, 0, 0, 0.55), 0 0 1px rgba(0, 0, 0, 0.1);
+            position: relative;
+            color: #111111;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .user-login-card:hover {
+            box-shadow: 0 28px 75px rgba(0, 0, 0, 0.65);
+        }
+
+        /* Top Center Circular Orange User Icon */
+        .card-avatar-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+
+        .user-avatar-badge {
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #F97316, #EA580C);
+            border: 5px solid rgba(249, 115, 22, 0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #FFFFFF;
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.35);
+            transition: transform 0.3s ease;
+        }
+
+        .user-login-card:hover .user-avatar-badge {
+            transform: scale(1.05);
+        }
+
+        /* Heading & Subtitle inside Card */
+        .card-header-center {
+            text-align: center;
+            margin-bottom: 14px;
+        }
+
+        .card-heading-title {
+            font-size: 25px;
+            font-weight: 800;
+            color: #111111;
+            margin-bottom: 4px;
+            letter-spacing: -0.5px;
+        }
+
+        .card-heading-subtitle {
+            font-size: 15px;
+            color: #6B7280;
+            font-weight: 500;
+        }
+
+        /* Flash Alerts */
+        .card-alert-box {
+            padding: 11px 16px;
+            border-radius: 12px;
+            font-size: 13.5px;
+            line-height: 1.4;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            animation: fadeInAlert 0.3s ease;
+        }
+
+        @keyframes fadeInAlert {
+            from { opacity: 0; transform: translateY(-6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card-alert-error {
+            background: #FEE2E2;
+            border: 1px solid #FCA5A5;
+            color: #B91C1C;
+        }
+
+        .card-alert-success {
+            background: #DCFCE7;
+            border: 1px solid #86EFAC;
+            color: #15803D;
+        }
+
+        .card-alert-info {
+            background: #FFEDD5;
+            border: 1px solid #FDBA74;
+            color: #C2410C;
+        }
+
+        /* Form Inputs */
+        .login-form-body {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .form-field-group {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .field-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1F2937;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .field-label i {
+            color: #F97316;
+            font-size: 14px;
+        }
+
+        .field-input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .field-input {
+            width: 100%;
+            height: 44px;
+            background: #F9FAFB;
+            border: 1.5px solid #D1D5DB;
+            border-radius: 12px;
+            padding: 0 46px 0 16px;
+            font-family: inherit;
+            font-size: 15px;
+            color: #111111;
+            outline: none;
+            transition: all 0.25s ease;
+        }
+
+        .field-input::placeholder {
+            color: #9CA3AF;
+            font-weight: 400;
+        }
+
+        .field-input:focus {
+            border-color: #F97316;
+            background: #FFFFFF;
+            box-shadow: 0 0 0 3.5px rgba(249, 115, 22, 0.2);
+        }
+
+        .password-toggle-btn {
+            position: absolute;
+            right: 14px;
+            background: transparent;
+            border: none;
+            color: #6B7280;
+            cursor: pointer;
+            padding: 6px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .password-toggle-btn:hover {
+            color: #F97316;
+            transform: scale(1.1);
+        }
+
+        /* Options Row: Remember Me & Forgot Password */
+        .form-options-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 14px;
+            color: #4B5563;
+            margin-top: 2px;
+        }
+
+        .remember-checkbox-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            user-select: none;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .remember-checkbox-label input[type="checkbox"] {
+            accent-color: #F97316;
+            width: 17px;
+            height: 17px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .forgot-password-link {
+            color: #F97316;
+            font-weight: 700;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .forgot-password-link:hover {
+            color: #EA580C;
+            text-decoration: underline;
+        }
+
+        /* Orange Full-Width Login Button */
+        .btn-submit-user {
+            width: 100%;
+            height: 56px;
+            background: linear-gradient(135deg, #F97316, #EA580C);
+            color: #FFFFFF;
+            border: none;
+            border-radius: 14px;
+            font-family: inherit;
+            font-size: 17px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 6px;
+        }
+
+        .btn-submit-user:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(249, 115, 22, 0.6);
+            background: linear-gradient(135deg, #FB923C, #EA580C);
+        }
+
+        .btn-submit-user:active {
+            transform: translateY(0);
+        }
+
+        .btn-submit-user:disabled {
+            opacity: 0.8;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        /* Horizontal Separator: New to our platform? */
+        .card-divider-row {
+            display: flex;
+            align-items: center;
+            margin: 22px 0 16px 0;
+            text-align: center;
+        }
+
+        .card-divider-line {
+            flex: 1;
+            height: 1px;
+            background: #E5E7EB;
+        }
+
+        .card-divider-text {
+            padding: 0 14px;
+            font-size: 13px;
+            color: #6B7280;
+            font-weight: 600;
+        }
+
+        /* Outlined Button: Create New Account */
+        .btn-create-account {
+            width: 100%;
+            height: 54px;
+            background: #FFFFFF;
+            border: 2px solid #F97316;
+            color: #F97316;
+            border-radius: 14px;
+            font-family: inherit;
+            font-size: 16px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 8px rgba(249, 115, 22, 0.12);
+        }
+
+        .btn-create-account i {
+            font-size: 16px;
+            transition: transform 0.2s ease;
+        }
+
+        .btn-create-account:hover {
+            background: linear-gradient(135deg, #F97316, #EA580C);
+            color: #FFFFFF;
+            border-color: transparent;
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.35);
+            transform: translateY(-2px);
+        }
+
+        .btn-create-account:hover i {
+            transform: scale(1.1);
+        }
+
+        /* Back to Home Action Button inside Card */
+        .btn-back-to-home {
+            width: 100%;
+            height: 42px;
+            background: #F9FAFB;
+            border: 1.5px solid #E5E7EB;
+            border-radius: 12px;
+            color: #4B5563;
+            font-family: inherit;
+            font-size: 14.5px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+
+        .btn-back-to-home i {
+            font-size: 14px;
+            color: #F97316;
+            transition: transform 0.25s ease;
+        }
+
+        .btn-back-to-home:hover {
+            background: #FFF7ED;
+            border-color: #F97316;
+            color: #F97316;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(249, 115, 22, 0.15);
+        }
+
+        .btn-back-to-home:hover i {
+            transform: translateX(-3px);
+        }
+
+        /* =====================================================================
+           RESPONSIVE BREAKPOINTS (Tablet & Mobile)
+           ===================================================================== */
+        @media (max-width: 1024px) {
+            .user-login-container {
+                flex-direction: column;
+                justify-content: center;
+                gap: 40px;
+                padding: 40px 24px;
+            }
+
+            .user-intro-col {
+                max-width: 100%;
+                padding-right: 0;
+                align-items: center;
+                text-align: center;
+            }
+
+            .intro-heading-group {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .intro-underline {
+                margin: 12px auto 16px auto;
+            }
+
+            .user-features-list {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+                width: 100%;
+                max-width: 720px;
+            }
+
+            .feature-item-row {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .user-login-card-col {
+                width: 100%;
+                max-width: 520px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .user-features-list {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .feature-item-row {
+                flex-direction: row;
+                text-align: left;
+            }
+
+            .user-login-card {
+                padding: 30px 22px;
+                border-radius: 24px;
+            }
+
+            .card-heading-title {
+                font-size: 26px;
+            }
+        }
+    

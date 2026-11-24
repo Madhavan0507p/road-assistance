@@ -1,0 +1,1551 @@
+
+        /* Theme Variables Definition */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            min-height: 100vh;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #111827;
+            color: #FFFFFF;
+            overflow-x: hidden;
+            background-image: url('${pageContext.request.contextPath}/images/mechanic-login-bg.jpg?v=2.0');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Ambient Dark Gradient on Left for High Readability */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(17, 24, 39, 0.96) 0%, rgba(17, 24, 39, 0.88) 45%, rgba(17, 24, 39, 0.45) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Ambient Glow Swooshes matching Reference Image */
+        .corner-swoosh-top {
+            position: fixed;
+            top: -60px;
+            left: -80px;
+            width: 340px;
+            height: 340px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.45) 0%, rgba(234, 88, 12, 0) 70%);
+            filter: blur(40px);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .corner-swoosh-bottom {
+            position: fixed;
+            bottom: -100px;
+            left: 20%;
+            width: 650px;
+            height: 260px;
+            border-radius: 50%;
+            background: radial-gradient(ellipse, rgba(249, 115, 22, 0.3) 0%, rgba(234, 88, 12, 0) 70%);
+            filter: blur(50px);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Back Navigation Button */
+        .back-nav-btn {
+            position: fixed;
+            top: 24px;
+            left: 28px;
+            z-index: 100;
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 9px 18px;
+            background: rgba(31, 41, 55, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 30px;
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 13.5px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+
+        .back-nav-btn:hover {
+            background: #F97316;
+            border-color: #F97316;
+            transform: translateX(-3px);
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.45);
+            color: #FFFFFF;
+        }
+
+        /* Main Registration Container */
+        .mech-reg-container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: clamp(24px, 3.5vh, 44px) clamp(24px, 4vw, 75px);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* =====================================================================
+           LEFT PROMOTIONAL SECTION — Matching All 5 Reference Screenshots
+           ===================================================================== */
+        .mech-intro-col {
+            flex: 0 0 clamp(320px, 32vw, 420px);
+            display: flex;
+            flex-direction: column;
+            z-index: 5;
+            padding-right: 24px;
+        }
+
+        .brand-header-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            margin-bottom: clamp(20px, 3vh, 32px);
+            transition: transform 0.25s ease;
+        }
+
+        .brand-header-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .brand-logo-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #F97316, #EA580C);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 23px;
+            color: #FFFFFF;
+            box-shadow: 0 6px 18px rgba(249, 115, 22, 0.45);
+            flex-shrink: 0;
+        }
+
+        .brand-text-block {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.15;
+        }
+
+        .brand-name-main {
+            font-size: 17px;
+            font-weight: 800;
+            color: #FFFFFF;
+            letter-spacing: -0.2px;
+        }
+
+        .brand-name-sub {
+            font-size: 11px;
+            font-weight: 800;
+            color: #F97316;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .intro-heading-group {
+            margin-bottom: 10px;
+        }
+
+        .intro-title {
+            font-size: clamp(34px, 3.6vw, 48px);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+            color: #FFFFFF;
+        }
+
+        .title-highlight {
+            color: #F97316;
+            display: block;
+        }
+
+        .intro-underline {
+            width: 64px;
+            height: 4.5px;
+            background: #F97316;
+            border-radius: 3px;
+            margin: 12px 0 14px 0;
+        }
+
+        .intro-description {
+            font-size: 14.5px;
+            color: #E5E7EB;
+            line-height: 1.5;
+            margin-bottom: clamp(22px, 3vh, 32px);
+        }
+
+        /* 3 Feature Boxes */
+        .mech-features-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .feature-item-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .feature-icon-box {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            border-radius: 12px;
+            background: rgba(249, 115, 22, 0.16);
+            border: 1px solid rgba(249, 115, 22, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 19px;
+            color: #F97316;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            transition: all 0.25s ease;
+        }
+
+        .feature-item-row:hover .feature-icon-box {
+            background: rgba(249, 115, 22, 0.28);
+            border-color: #F97316;
+            transform: scale(1.05);
+            box-shadow: 0 6px 18px rgba(249, 115, 22, 0.4);
+        }
+
+        .feature-text-block {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.3;
+        }
+
+        .feature-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 2px;
+        }
+
+        .feature-desc {
+            font-size: 13px;
+            color: #9CA3AF;
+            font-weight: 500;
+        }
+
+        /* =====================================================================
+           RIGHT SECTION (LARGE CRISP WHITE 5-STEP REGISTRATION CARD)
+           ===================================================================== */
+        .mech-reg-card-col {
+            flex: 1;
+            max-width: 890px;
+            display: flex;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .mech-reg-card {
+            width: 100%;
+            background: #FFFFFF;
+            border-radius: 28px;
+            padding: clamp(24px, 3vh, 34px) clamp(24px, 3vw, 40px);
+            box-shadow: 0 24px 65px rgba(0, 0, 0, 0.55), 0 0 1px rgba(0, 0, 0, 0.1);
+            position: relative;
+            color: #1F2937;
+            transition: all 0.3s ease;
+        }
+
+        /* Top Center Circular Orange Wrench/Gear Icon */
+        .card-top-icon-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+
+        .card-wrench-badge {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #F97316, #EA580C);
+            border: 4px solid rgba(249, 115, 22, 0.16);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #FFFFFF;
+            box-shadow: 0 6px 18px rgba(249, 115, 22, 0.35);
+        }
+
+        .card-main-header {
+            text-align: center;
+            margin-bottom: 22px;
+        }
+
+        .card-main-title {
+            font-size: clamp(23px, 2vw, 27px);
+            font-weight: 800;
+            color: #111827;
+            margin-bottom: 3px;
+            letter-spacing: -0.3px;
+        }
+
+        .card-main-subtitle {
+            font-size: 13.5px;
+            color: #6B7280;
+            font-weight: 500;
+        }
+
+        /* =====================================================================
+           FIVE-STEP HORIZONTAL STEPPER WIDGET
+           ===================================================================== */
+        .stepper-nav-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            margin-bottom: 24px;
+            padding: 0 10px;
+        }
+
+        .stepper-track-line {
+            position: absolute;
+            top: 20px;
+            left: 36px;
+            right: 36px;
+            height: 3px;
+            background: #E5E7EB;
+            z-index: 1;
+        }
+
+        .stepper-progress-fill {
+            position: absolute;
+            top: 20px;
+            left: 36px;
+            height: 3px;
+            background: #F97316;
+            z-index: 2;
+            transition: width 0.35s ease;
+            width: 0%;
+        }
+
+        .stepper-step-item {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: default;
+            text-decoration: none;
+        }
+
+        .step-circle-badge {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #FFFFFF;
+            border: 2.5px solid #D1D5DB;
+            color: #9CA3AF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .stepper-step-item.active .step-circle-badge {
+            background: #F97316;
+            border-color: #F97316;
+            color: #FFFFFF;
+            box-shadow: 0 4px 14px rgba(249, 115, 22, 0.45);
+            transform: scale(1.08);
+        }
+
+        .stepper-step-item.completed .step-circle-badge {
+            background: #F97316;
+            border-color: #F97316;
+            color: #FFFFFF;
+        }
+
+        .step-label-text {
+            font-size: 12px;
+            font-weight: 600;
+            color: #9CA3AF;
+            margin-top: 7px;
+            white-space: nowrap;
+            transition: color 0.25s ease;
+        }
+
+        .stepper-step-item.active .step-label-text {
+            color: #F97316;
+            font-weight: 800;
+        }
+
+        .stepper-step-item.completed .step-label-text {
+            color: #374151;
+            font-weight: 700;
+        }
+
+        /* =====================================================================
+           STEP BANNER HEADER BOX — Light Peach Rounded Container
+           ===================================================================== */
+        .step-banner-box {
+            background-color: #FFF7ED;
+            border: 1.5px solid #FFEDD5;
+            border-radius: 16px;
+            padding: 13px 18px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 22px;
+        }
+
+        .step-banner-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #F97316, #EA580C);
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.35);
+        }
+
+        .step-banner-text {
+            line-height: 1.25;
+        }
+
+        .step-banner-title {
+            font-size: 16.5px;
+            font-weight: 800;
+            color: #111827;
+        }
+
+        .step-banner-subtitle {
+            font-size: 13px;
+            color: #6B7280;
+            margin-top: 2px;
+            font-weight: 500;
+        }
+
+        /* Flash Alerts */
+        .card-alert-box {
+            padding: 10px 14px;
+            border-radius: 12px;
+            font-size: 13.5px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .card-alert-error {
+            background-color: #FEF2F2;
+            border: 1px solid #FECACA;
+            color: #DC2626;
+        }
+
+        .card-alert-success {
+            background-color: #DCFCE7;
+            border: 1px solid #86EFAC;
+            color: #16A34A;
+        }
+
+        /* =====================================================================
+           FORM FIELDS & GREEN / RED BORDER GLOW VALIDATION
+           ===================================================================== */
+        .form-grid-row {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .form-field-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 16px;
+            min-width: 0;
+        }
+
+        .form-grid-row .form-field-group {
+            margin-bottom: 0;
+            min-width: 0;
+        }
+
+        .field-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #374151;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .field-label i {
+            color: #F97316;
+            font-size: 13px;
+        }
+
+        .required {
+            color: #DC2626;
+            font-weight: 700;
+        }
+
+        .field-input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        input[type="date"].field-input {
+            color-scheme: light;
+            cursor: pointer;
+        }
+
+        .field-input, .field-select, .field-textarea {
+            width: 100%;
+            height: 46px;
+            background-color: #F9FAFB;
+            border: 1.5px solid #D1D5DB;
+            border-radius: 11px;
+            padding: 0 14px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #111827;
+            font-family: inherit;
+            outline: none;
+            transition: all 0.22s ease;
+        }
+
+        .field-textarea {
+            height: 82px;
+            padding: 10px 14px;
+            resize: none;
+        }
+
+        .field-input::placeholder, .field-textarea::placeholder {
+            color: #9CA3AF;
+            font-weight: 400;
+        }
+
+        .field-input:focus, .field-select:focus, .field-textarea:focus {
+            background-color: #FFFFFF;
+            border-color: #F97316;
+            box-shadow: 0 0 0 3.5px rgba(249, 115, 22, 0.16);
+        }
+
+        /* Visual Glow Validation States */
+        .field-input.glow-valid, .field-select.glow-valid, .field-textarea.glow-valid {
+            border-color: #16A34A !important;
+            background-color: #FFFFFF !important;
+            box-shadow: 0 0 0 3.5px rgba(22, 163, 74, 0.22) !important;
+        }
+
+        .field-input.glow-invalid, .field-select.glow-invalid, .field-textarea.glow-invalid {
+            border-color: #DC2626 !important;
+            background-color: #FEF2F2 !important;
+            box-shadow: 0 0 0 3.5px rgba(220, 38, 38, 0.22) !important;
+        }
+
+        /* Inline Instruction Messages */
+        .field-instruction-msg {
+            font-size: 11.5px;
+            font-weight: 600;
+            margin-top: 4px;
+            display: none;
+            line-height: 1.35;
+        }
+
+        .field-instruction-msg.show-error {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #DC2626;
+        }
+
+        .field-instruction-msg.show-valid {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #16A34A;
+        }
+
+        .field-select {
+            appearance: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+            padding-right: 36px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236B7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            background-size: 14px;
+        }
+
+        /* Password Field Wrapper */
+        .password-field-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .password-field-wrapper .field-input {
+            padding-right: 44px;
+        }
+
+        .password-toggle-btn {
+            position: absolute;
+            right: 10px;
+            background: transparent;
+            border: none;
+            color: #6B7280;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 6px 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            transition: color 0.2s ease;
+        }
+
+        .password-toggle-btn:hover {
+            color: #F97316;
+        }
+
+        /* =====================================================================
+           STEP 2: EMAIL OTP VERIFICATION STYLES
+           ===================================================================== */
+        .email-display-card {
+            background-color: #F9FAFB;
+            border: 1.5px solid #D1D5DB;
+            border-radius: 14px;
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+
+        .email-info-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .email-info-left i {
+            color: #F97316;
+            font-size: 18px;
+        }
+
+        .email-text-label {
+            font-size: 14.5px;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .btn-change-email {
+            background: transparent;
+            border: none;
+            color: #EA580C;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .btn-change-email:hover {
+            color: #F97316;
+        }
+
+        .btn-send-otp-main {
+            height: 42px;
+            padding: 0 20px;
+            background: linear-gradient(135deg, #F97316, #EA580C);
+            color: #FFFFFF;
+            border: none;
+            border-radius: 10px;
+            font-size: 13.5px;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 3px 10px rgba(249, 115, 22, 0.35);
+            transition: all 0.2s ease;
+        }
+
+        .btn-send-otp-main:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(249, 115, 22, 0.45);
+        }
+
+        .btn-send-otp-main:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .otp-box-card {
+            background-color: #FFF7ED;
+            border: 1.5px solid #FFEDD5;
+            border-radius: 18px;
+            padding: 20px 22px;
+            margin-bottom: 18px;
+        }
+
+        .otp-box-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .otp-shield-badge {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #F97316, #EA580C);
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 17px;
+            box-shadow: 0 3px 8px rgba(249, 115, 22, 0.35);
+        }
+
+        .otp-title-text {
+            font-size: 15px;
+            font-weight: 800;
+            color: #111827;
+        }
+
+        .otp-sub-text {
+            font-size: 12.5px;
+            color: #6B7280;
+            margin-top: 1px;
+        }
+
+        .otp-inputs-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+
+        .otp-digits-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .otp-digit-box {
+            width: 44px;
+            height: 48px;
+            background: #FFFFFF;
+            border: 1.5px solid #D1D5DB;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: 800;
+            color: #111827;
+            text-align: center;
+            outline: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .otp-digit-box:focus {
+            border-color: #F97316;
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.25);
+            transform: scale(1.05);
+        }
+
+        .otp-digit-box.filled {
+            border-color: #9CA3AF;
+        }
+
+        .otp-digit-box.verified {
+            border-color: #16A34A;
+            background-color: #F0FDF4;
+            color: #16A34A;
+        }
+
+        .otp-timer-action {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .otp-timer-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #EA580C;
+        }
+
+        .btn-resend-pill {
+            height: 36px;
+            padding: 0 16px;
+            background: #FFFFFF;
+            border: 1.5px solid #F97316;
+            border-radius: 20px;
+            color: #F97316;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-resend-pill:hover:not(:disabled) {
+            background: #F97316;
+            color: #FFFFFF;
+        }
+
+        .btn-resend-pill:disabled {
+            border-color: #E5E7EB;
+            color: #9CA3AF;
+            cursor: not-allowed;
+            background: #F9FAFB;
+        }
+
+        .otp-info-footnote {
+            font-size: 12px;
+            color: #6B7280;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* =====================================================================
+           STEP 3: WORK SPECIALIZATION CHECKBOX CARDS
+           ===================================================================== */
+        .specialization-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .spec-card {
+            background: #FFFFFF;
+            border: 1.5px solid #E5E7EB;
+            border-radius: 14px;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.22s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+
+        .spec-card:hover {
+            border-color: #F97316;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.15);
+        }
+
+        .spec-card.selected {
+            border-color: #F97316;
+            background-color: #FFF7ED;
+            box-shadow: 0 0 0 1px #F97316, 0 4px 14px rgba(249, 115, 22, 0.18);
+        }
+
+        .spec-card-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .spec-icon-box {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: rgba(249, 115, 22, 0.12);
+            color: #F97316;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+
+        .spec-card.selected .spec-icon-box {
+            background: #F97316;
+            color: #FFFFFF;
+        }
+
+        .spec-title-text {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: #1F2937;
+        }
+
+        .spec-card.selected .spec-title-text {
+            color: #C2410C;
+        }
+
+        .spec-checkbox-box {
+            width: 20px;
+            height: 20px;
+            border-radius: 6px;
+            border: 1.5px solid #D1D5DB;
+            background: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            font-size: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .spec-card.selected .spec-checkbox-box {
+            background: #F97316;
+            border-color: #F97316;
+        }
+
+        /* =====================================================================
+           STEP 4: SHOP DETAILS, WORKING HOURS & PHOTO UPLOADS
+           ===================================================================== */
+        .time-select-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .time-box-wrapper {
+            position: relative;
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .time-box-wrapper .field-select, .time-box-wrapper .field-input {
+            padding-right: 36px;
+        }
+
+        .time-icon-right {
+            position: absolute;
+            right: 12px;
+            color: #9CA3AF;
+            pointer-events: none;
+            font-size: 14px;
+        }
+
+        .time-separator-to {
+            font-size: 13px;
+            font-weight: 700;
+            color: #6B7280;
+        }
+
+        .char-counter-text {
+            font-size: 11.5px;
+            color: #9CA3AF;
+            font-weight: 600;
+            text-align: right;
+            margin-top: 3px;
+        }
+
+        .photo-upload-section {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .photo-upload-dropzone {
+            width: 170px;
+            height: 105px;
+            border: 2px dashed #D1D5DB;
+            border-radius: 14px;
+            background: #F9FAFB;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.22s ease;
+        }
+
+        .photo-upload-dropzone:hover {
+            border-color: #F97316;
+            background: #FFF7ED;
+        }
+
+        .photo-upload-dropzone i {
+            font-size: 24px;
+            color: #F97316;
+            margin-bottom: 6px;
+        }
+
+        .dropzone-label {
+            font-size: 11.5px;
+            font-weight: 700;
+            color: #374151;
+            line-height: 1.25;
+        }
+
+        .dropzone-sub {
+            font-size: 9.5px;
+            color: #9CA3AF;
+            margin-top: 3px;
+        }
+
+        .photo-preview-grid {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .photo-preview-item {
+            width: 140px;
+            height: 105px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            border: 1.5px solid #E5E7EB;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Identity Document Uploads (Aadhaar & ID Proof) */
+        .doc-upload-box {
+            width: 100%;
+            margin-top: 2px;
+        }
+
+        .doc-dropzone {
+            width: 100%;
+            min-height: 82px;
+            border: 2px dashed #CBD5E1;
+            border-radius: 12px;
+            background: #F8FAFC;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 14px;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            box-sizing: border-box;
+            text-align: left;
+            position: relative;
+        }
+
+        .doc-dropzone[style*="display: none"] {
+            display: none !important;
+        }
+
+        .doc-dropzone:hover {
+            border-color: #F97316;
+            background: #FFF7ED;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(249, 115, 22, 0.1);
+        }
+
+        .doc-dropzone.glow-invalid {
+            border-color: #EF4444 !important;
+            background: #FEF2F2 !important;
+        }
+
+        .doc-dropzone-icon {
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            border-radius: 10px;
+            background: rgba(249, 115, 22, 0.1);
+            color: #F97316;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: all 0.2s ease;
+        }
+
+        .doc-dropzone:hover .doc-dropzone-icon {
+            background: #F97316;
+            color: #FFFFFF;
+        }
+
+        .doc-dropzone-text {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .doc-dropzone-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1E293B;
+            line-height: 1.3;
+        }
+
+        .doc-dropzone-hint {
+            font-size: 11px;
+            color: #64748B;
+            margin-top: 3px;
+            font-weight: 500;
+        }
+
+        .doc-browse-btn {
+            padding: 6px 14px;
+            background: #FFFFFF;
+            border: 1.5px solid #CBD5E1;
+            border-radius: 8px;
+            font-size: 11.5px;
+            font-weight: 700;
+            color: #334155;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .doc-dropzone:hover .doc-browse-btn {
+            border-color: #F97316;
+            color: #EA580C;
+            background: #FFFFFF;
+        }
+
+        /* Uploaded / Attached File Card */
+        .doc-file-badge {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 14px;
+            background: #F0FDF4;
+            border: 1.5px solid #86EFAC;
+            border-left: 4px solid #10B981;
+            border-radius: 12px;
+            gap: 12px;
+            min-height: 82px;
+            box-sizing: border-box;
+            width: 100%;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 6px rgba(16, 185, 129, 0.08);
+            overflow: hidden;
+        }
+
+        .doc-preview-wrapper {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #E2E8F0;
+            border: 1px solid #CBD5E1;
+        }
+
+        .doc-thumb-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .doc-pdf-icon {
+            width: 100%;
+            height: 100%;
+            background: rgba(239, 68, 68, 0.1);
+            color: #EF4444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .doc-generic-icon {
+            width: 100%;
+            height: 100%;
+            background: rgba(16, 185, 129, 0.1);
+            color: #10B981;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        .doc-file-info {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .doc-filename {
+            font-size: 13px;
+            font-weight: 700;
+            color: #0F172A;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: block;
+            line-height: 1.35;
+        }
+
+        .doc-file-meta-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            margin-top: 3px;
+            color: #64748B;
+        }
+
+        .doc-filesize {
+            font-weight: 600;
+            color: #475569;
+        }
+
+        .doc-meta-dot {
+            color: #94A3B8;
+        }
+
+        .doc-ready-status {
+            color: #059669;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .doc-actions-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .btn-doc-action {
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-doc-inspect {
+            background: #E0F2FE;
+            color: #0284C7;
+        }
+
+        .btn-doc-inspect:hover {
+            background: #0284C7;
+            color: #FFFFFF;
+        }
+
+        .btn-doc-remove {
+            background: #FEE2E2;
+            color: #DC2626;
+        }
+
+        .btn-doc-remove:hover {
+            background: #DC2626;
+            color: #FFFFFF;
+        }
+
+        .photo-preview-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .btn-remove-photo {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #DC2626;
+            color: #FFFFFF;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        /* =====================================================================
+           STEP 5: SHOP ADDRESS & INTERACTIVE MAP (TWO COLUMNS)
+           ===================================================================== */
+        .step5-two-col {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 22px;
+            align-items: flex-start;
+        }
+
+        .map-wrapper-card {
+            background: #FFFFFF;
+            border: 1.5px solid #E5E7EB;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .map-header-bar {
+            padding: 12px 16px;
+            background: #F9FAFB;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .map-title {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: #111827;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .map-title i {
+            color: #F97316;
+        }
+
+        .map-subtitle {
+            font-size: 11.5px;
+            color: #6B7280;
+            margin-top: 1px;
+        }
+
+        #mechanicMap {
+            width: 100%;
+            height: 230px;
+            z-index: 5;
+        }
+
+        .map-footer-coords-bar {
+            padding: 10px 14px;
+            background: #FFFFFF;
+            border-top: 1px solid #E5E7EB;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .coords-display {
+            font-size: 12.5px;
+            font-weight: 700;
+            color: #374151;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .coords-display i {
+            color: #F97316;
+            font-size: 14px;
+        }
+
+        .btn-use-location {
+            height: 32px;
+            padding: 0 12px;
+            background: #FFFFFF;
+            border: 1.5px solid #F97316;
+            border-radius: 8px;
+            color: #F97316;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-use-location:hover {
+            background: #F97316;
+            color: #FFFFFF;
+        }
+
+        /* =====================================================================
+           FOOTER ACTION BUTTONS
+           ===================================================================== */
+        .step-footer-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 24px;
+            padding-top: 18px;
+            border-top: 1px solid #F3F4F6;
+        }
+
+        .btn-wizard-back {
+            height: 48px;
+            padding: 0 24px;
+            background: #FFFFFF;
+            border: 1.5px solid #F97316;
+            border-radius: 12px;
+            color: #F97316;
+            font-size: 14.5px;
+            font-weight: 700;
+            font-family: inherit;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-wizard-back:hover {
+            background: #FFF7ED;
+            transform: translateX(-2px);
+        }
+
+        .btn-wizard-next {
+            height: 48px;
+            padding: 0 28px;
+            background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+            border: none;
+            border-radius: 12px;
+            color: #FFFFFF;
+            font-size: 15px;
+            font-weight: 800;
+            font-family: inherit;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
+            transition: all 0.25s ease;
+        }
+
+        .btn-wizard-next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(249, 115, 22, 0.55);
+        }
+
+        .btn-wizard-next:active {
+            transform: translateY(0);
+        }
+
+        .btn-wizard-next:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1080px) {
+            .mech-reg-container {
+                flex-direction: column;
+                padding: 30px 20px;
+                gap: 30px;
+            }
+
+            .mech-intro-col {
+                width: 100%;
+                max-width: 600px;
+                text-align: center;
+                align-items: center;
+                padding-right: 0;
+            }
+
+            .intro-underline {
+                margin: 12px auto 14px auto;
+            }
+
+            .mech-features-list {
+                flex-direction: row;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .mech-reg-card-col {
+                width: 100%;
+            }
+
+            .step5-two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .form-grid-row {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .specialization-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .mech-features-list {
+                flex-direction: column;
+            }
+
+            .stepper-nav-bar {
+                overflow-x: auto;
+                padding-bottom: 8px;
+            }
+
+            .step-label-text {
+                font-size: 10px;
+            }
+
+            .btn-wizard-next, .btn-wizard-back {
+                padding: 0 16px;
+                font-size: 13.5px;
+            }
+        }
+    

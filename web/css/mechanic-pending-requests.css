@@ -1,0 +1,981 @@
+/* ==========================================================================
+   MECHANIC PENDING REQUESTS STYLESHEET
+   On Road Vehicle Breakdown Assistance
+   Strict Automotive Theme: Orange (#F97316), Charcoal (#1F2937),
+   Dark Charcoal (#111827), White (#FFFFFF), Slate (#F1F5F9)
+   STRICT RULE: NO BLUE COLOR ANYWHERE
+   ========================================================================== */
+
+/* Theme Variables Definition */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #111827;
+    color: #374151;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   1. MAIN CANVAS
+   ========================================================================== */
+.mech-main-canvas {
+    flex: 1;
+    margin: 16px 20px 20px 0;
+    background: #FFFFFF;
+    border-radius: 24px;
+    padding: 24px 28px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    min-width: 0;
+    overflow-y: auto;
+}
+
+/* ==========================================================================
+   2. PAGE TITLE & CURRENT DATE SECTION
+   ========================================================================== */
+.pr-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.pr-title-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.pr-title-icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background-color: #FFEDD5;
+    color: #F97316;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.pr-title-text h1 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #1F2937;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.pr-title-text h1 .accent-orange {
+    color: #F97316;
+}
+
+.pr-title-text p {
+    color: #6B7280;
+    font-size: 13.5px;
+    margin-top: 3px;
+    font-weight: 500;
+}
+
+.pr-date-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 16px;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    color: #1F2937;
+    font-size: 13.5px;
+    font-weight: 700;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.pr-date-card i {
+    color: #1F2937;
+    font-size: 15px;
+}
+
+/* Alert Notification Banner */
+.pr-alert-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 18px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    font-size: 13.5px;
+    font-weight: 600;
+    animation: fadeIn 0.3s ease;
+}
+
+.pr-alert-success {
+    background-color: #DCFCE7;
+    color: #166534;
+    border: 1px solid #BBF7D0;
+}
+
+.pr-alert-rejected {
+    background-color: #FEE2E2;
+    color: #991B1B;
+    border: 1px solid #FECACA;
+}
+
+.pr-alert-close {
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: inherit;
+    opacity: 0.7;
+}
+
+.pr-alert-close:hover {
+    opacity: 1;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   3. FOUR STATISTICS CARDS
+   ========================================================================== */
+.pr-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.pr-stat-card {
+    border-radius: 16px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.pr-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+}
+
+/* Card 1: Total Requests (Peach) */
+.pr-card-total {
+    background-color: #FFF7ED;
+    border-color: #FFEDD5;
+}
+
+/* Card 2: Pending (Light Yellow) */
+.pr-card-pending {
+    background-color: #FEF9C3;
+    border-color: #FEF08A;
+}
+
+/* Card 3: Accepted (Light Green) */
+.pr-card-accepted {
+    background-color: #DCFCE7;
+    border-color: #BBF7D0;
+}
+
+/* Card 4: Completed (Light Green) */
+.pr-card-completed {
+    background-color: #ECFDF5;
+    border-color: #A7F3D0;
+}
+
+.pr-stat-icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.pr-card-total .pr-stat-icon-box {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.pr-card-pending .pr-stat-icon-box {
+    background: rgba(234, 179, 8, 0.25);
+    color: #CA8A04;
+}
+
+.pr-card-accepted .pr-stat-icon-box {
+    background: rgba(22, 163, 74, 0.2);
+    color: #16A34A;
+}
+
+.pr-card-completed .pr-stat-icon-box {
+    background: rgba(16, 185, 129, 0.2);
+    color: #059669;
+}
+
+.pr-stat-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.pr-stat-label {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #4B5563;
+}
+
+.pr-stat-number {
+    font-size: 24px;
+    font-weight: 800;
+    color: #1F2937;
+    line-height: 1.2;
+    margin-top: 2px;
+}
+
+/* ==========================================================================
+   4. SEARCH AND FILTER TOOLBAR
+   ========================================================================== */
+.pr-toolbar-form {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+}
+
+.pr-search-box {
+    flex: 2;
+    min-width: 240px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.pr-search-box i {
+    position: absolute;
+    left: 14px;
+    color: #6B7280;
+    font-size: 14px;
+    pointer-events: none;
+}
+
+.pr-search-input {
+    width: 100%;
+    height: 42px;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    padding: 0 14px 0 38px;
+    font-size: 13.5px;
+    color: #1F2937;
+    background: #FFFFFF;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.pr-search-input:focus {
+    border-color: #F97316;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+}
+
+.pr-select-box {
+    flex: 1;
+    min-width: 180px;
+    position: relative;
+}
+
+.pr-select-control {
+    width: 100%;
+    height: 42px;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    padding: 0 32px 0 14px;
+    font-size: 13.5px;
+    color: #1F2937;
+    background: #FFFFFF;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    font-weight: 500;
+}
+
+.pr-select-control:focus {
+    border-color: #F97316;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+}
+
+.pr-select-box i {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6B7280;
+    font-size: 12px;
+    pointer-events: none;
+}
+
+.btn-pr-search {
+    height: 42px;
+    background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    padding: 0 22px;
+    font-size: 13.5px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+    flex-shrink: 0;
+}
+
+.btn-pr-search:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(249, 115, 22, 0.4);
+}
+
+/* ==========================================================================
+   5. PENDING SERVICE REQUESTS CARD & TABLE
+   ========================================================================== */
+.pr-main-card {
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 20px;
+    padding: 22px 24px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+
+.pr-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.pr-card-title-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pr-card-title-group i {
+    color: #F97316;
+    font-size: 20px;
+}
+
+.pr-card-title-group h2 {
+    font-size: 18px;
+    font-weight: 800;
+    color: #1F2937;
+}
+
+.pr-badge-count {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    background-color: #FEF9C3;
+    border: 1px solid #FEF08A;
+    border-radius: 999px;
+    color: #854D0E;
+    font-size: 12.5px;
+    font-weight: 700;
+}
+
+/* Table Container */
+.pr-table-container {
+    overflow-x: auto;
+    border-radius: 12px;
+}
+
+.pr-data-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 13.5px;
+}
+
+/* Light Gray Table Header matching reference (#F1F5F9) */
+.pr-data-table thead th {
+    background-color: #F1F5F9;
+    color: #1F2937;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: left;
+    padding: 12px 8px;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.pr-data-table thead th:first-child {
+    border-top-left-radius: 10px;
+}
+
+.pr-data-table thead th:last-child {
+    border-top-right-radius: 10px;
+}
+
+.pr-data-table tbody td {
+    padding: 11px 8px;
+    vertical-align: middle;
+    border-bottom: 1px solid #F3F4F6;
+    color: #1F2937;
+    background: #FFFFFF;
+}
+
+.pr-data-table tbody tr:hover td {
+    background-color: #FAFAFA;
+}
+
+/* Table Columns */
+.td-row-num {
+    font-weight: 700;
+    color: #4B5563;
+    text-align: center;
+    width: 32px;
+}
+
+.badge-req-id {
+    display: inline-block;
+    padding: 4px 10px;
+    background-color: #FFF7ED;
+    border: 1px solid #FFEDD5;
+    border-radius: 8px;
+    color: #EA580C;
+    font-weight: 700;
+    font-size: 12.5px;
+    white-space: nowrap;
+}
+
+.vehicle-cell-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.vehicle-thumb-img {
+    width: 48px;
+    height: 32px;
+    object-fit: contain;
+    border-radius: 6px;
+    background: #F9FAFB;
+    padding: 2px;
+    flex-shrink: 0;
+}
+
+.vehicle-text-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.vehicle-reg-no {
+    font-weight: 800;
+    font-size: 13px;
+    color: #1F2937;
+    white-space: nowrap;
+}
+
+.vehicle-model-desc {
+    font-size: 12px;
+    color: #6B7280;
+    font-weight: 500;
+    max-width: 140px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.issue-cell-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.issue-cell-box i {
+    color: #F97316;
+    font-size: 16px;
+    width: 18px;
+    text-align: center;
+}
+
+.issue-name-text {
+    font-weight: 600;
+    font-size: 13px;
+    color: #1F2937;
+    white-space: nowrap;
+}
+
+.location-cell-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+.location-cell-box i {
+    color: #F97316;
+    font-size: 14px;
+    margin-top: 2px;
+}
+
+.location-text-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.location-name {
+    font-weight: 600;
+    font-size: 13px;
+    color: #1F2937;
+    max-width: 170px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.location-dist {
+    font-size: 11px;
+    color: #6B7280;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.datetime-cell-box {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    white-space: nowrap;
+}
+
+.datetime-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #4B5563;
+}
+
+.datetime-row i {
+    color: #F97316;
+    font-size: 12px;
+    width: 14px;
+}
+
+/* Status Pill */
+.status-pill-pending {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+    background-color: #FEF9C3;
+    color: #854D0E;
+    border: 1px solid #FEF08A;
+}
+
+.status-pill-pending i {
+    color: #CA8A04;
+}
+
+/* ==========================================================================
+   6. ACTION BUTTONS: ACCEPT (GREEN) & REJECT (RED)
+   ========================================================================== */
+.pr-actions-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+}
+
+.btn-pr-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 9px;
+    border-radius: 999px;
+    font-size: 11.5px;
+    font-weight: 700;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    transition: all 0.2s ease;
+    border: 1.5px solid;
+    text-decoration: none;
+}
+
+/* Accept Button (Green Outline) */
+.btn-pr-accept {
+    border-color: #16A34A;
+    color: #16A34A;
+}
+
+.btn-pr-accept:hover:not(:disabled) {
+    background-color: #16A34A;
+    color: #FFFFFF;
+    box-shadow: 0 3px 10px rgba(22, 163, 74, 0.3);
+}
+
+/* Reject Button (Red Outline) */
+.btn-pr-reject {
+    border-color: #DC2626;
+    color: #DC2626;
+}
+
+.btn-pr-reject:hover:not(:disabled) {
+    background-color: #DC2626;
+    color: #FFFFFF;
+    box-shadow: 0 3px 10px rgba(220, 38, 38, 0.3);
+}
+
+/* View Button (Neutral Gray Outline Pill) */
+.btn-pr-view {
+    border-color: #CBD5E1;
+    color: #475569;
+    background-color: #F8FAFC;
+}
+
+.btn-pr-view:hover:not(:disabled) {
+    background-color: #F1F5F9;
+    color: #0F172A;
+    border-color: #94A3B8;
+    box-shadow: 0 3px 10px rgba(100, 116, 139, 0.2);
+}
+
+/* ==========================================================================
+   6B. INTERACTIVE VIEW DETAILS MODAL (Zero Amount / Fee Display)
+   ========================================================================== */
+.pr-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(17, 24, 39, 0.75);
+    backdrop-filter: blur(4px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2200;
+    padding: 20px;
+}
+
+.pr-modal-overlay.active {
+    display: flex;
+}
+
+.pr-modal-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    animation: prModalSlideUp 0.25s ease-out;
+}
+
+@keyframes prModalSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.pr-modal-header {
+    background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #FFFFFF;
+    border-bottom: 1px solid #374151;
+}
+
+.pr-modal-header h3 {
+    font-size: 17px;
+    font-weight: 800;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #FFFFFF;
+}
+
+.pr-modal-header h3 span {
+    color: #F97316;
+}
+
+.btn-pr-modal-close {
+    background: transparent;
+    border: none;
+    color: #9CA3AF;
+    font-size: 26px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0 4px;
+    transition: color 0.15s ease;
+}
+
+.btn-pr-modal-close:hover {
+    color: #FFFFFF;
+}
+
+.pr-modal-body {
+    padding: 24px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.pr-modal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.pr-modal-item {
+    background: #F8FAFC;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid #E2E8F0;
+}
+
+.pr-modal-label {
+    font-size: 11.5px;
+    color: #64748B;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.pr-modal-val {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1F2937;
+    word-break: break-word;
+}
+
+.pr-modal-full {
+    grid-column: span 2;
+}
+
+.pr-modal-footer {
+    padding: 16px 24px;
+    background: #F8FAFC;
+    border-top: 1px solid #E2E8F0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-pr-modal-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 20px;
+    border-radius: 10px;
+    font-size: 13.5px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    border: 1.5px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.btn-pr-modal-sec {
+    background: #E2E8F0;
+    color: #475569;
+}
+
+.btn-pr-modal-sec:hover {
+    background: #CBD5E1;
+    color: #1E293B;
+}
+
+.btn-pr-modal-accept {
+    background: #16A34A;
+    color: #FFFFFF;
+    border-color: #16A34A;
+}
+
+.btn-pr-modal-accept:hover {
+    background: #15803D;
+    border-color: #15803D;
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+}
+
+.btn-pr-modal-reject {
+    background: #FFFFFF;
+    color: #DC2626;
+    border-color: #DC2626;
+}
+
+.btn-pr-modal-reject:hover {
+    background: #DC2626;
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.btn-pr-action:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ==========================================================================
+   7. FOOTER & PAGINATION
+   ========================================================================== */
+.pr-footer-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid #F3F4F6;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+
+.pr-pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-pr-page {
+    height: 34px;
+    min-width: 34px;
+    padding: 0 10px;
+    border-radius: 8px;
+    border: 1px solid #E5E7EB;
+    background: #FFFFFF;
+    color: #4B5563;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-pr-page:hover:not(.disabled) {
+    background: #F9FAFB;
+    border-color: #D1D5DB;
+    color: #1F2937;
+}
+
+.btn-pr-page.active {
+    background: #F97316;
+    border-color: #F97316;
+    color: #FFFFFF;
+    font-weight: 700;
+}
+
+.btn-pr-page.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #F9FAFB;
+}
+
+.pr-record-count-text {
+    font-size: 13px;
+    color: #4B5563;
+    font-weight: 500;
+}
+
+/* Empty State */
+.pr-empty-state {
+    text-align: center;
+    padding: 48px 20px;
+}
+
+.pr-empty-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: #FFF7ED;
+    color: #F97316;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    margin-bottom: 14px;
+}
+
+.pr-empty-title {
+    font-size: 17px;
+    font-weight: 800;
+    color: #1F2937;
+    margin-bottom: 6px;
+}
+
+.pr-empty-desc {
+    color: #6B7280;
+    font-size: 13.5px;
+    margin-bottom: 18px;
+}
+
+/* ==========================================================================
+   8. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1200px) {
+    .pr-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .mech-main-canvas {
+        margin: 14px 16px 16px 0;
+        padding: 20px 22px;
+    }
+    .pr-toolbar-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .pr-search-box, .pr-select-box {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .mech-main-canvas {
+        margin: 12px;
+        border-radius: 18px;
+        padding: 18px 16px;
+    }
+    .pr-stats-grid {
+        grid-template-columns: 1fr;
+    }
+}

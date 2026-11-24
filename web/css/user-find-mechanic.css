@@ -1,0 +1,1494 @@
+/* ==========================================================================
+   USER MODULE — FIND MECHANICS PAGE STYLESHEET
+   Project: On Road Vehicle Breakdown Assistance
+   Matching Reference Screenshot: media_1793770300797_7bc9259f.jpg
+   Strict Automotive Theme: Orange (#F97316), Charcoal (#1F2937), Dark (#111827), White (#FFFFFF)
+   Strict Zero Blue Color Rule Enforced
+   ========================================================================== */
+
+/* Main Container Inside Canvas */
+.find-mechanics-container {
+    width: 100%;
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 6px 0 28px 0;
+}
+
+/* Outer White Card Wrapper matching Reference Screenshot */
+.find-mechanics-main-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+    border: 1px solid #F1F5F9;
+    padding: 26px 32px;
+}
+
+/* ==========================================================================
+   1. HEADER ROW: Badge + Title + Subtitle + Breadcrumb
+   ========================================================================== */
+.find-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #F1F5F9;
+}
+
+.find-title-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.find-icon-badge {
+    width: 48px;
+    height: 48px;
+    background: #FFF7ED;
+    border: 1.5px solid #FFEDD5;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F97316;
+    font-size: 22px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(249, 115, 22, 0.12);
+}
+
+.find-title-text h1 {
+    font-size: 24px;
+    font-weight: 800;
+    color: #111827;
+    letter-spacing: -0.4px;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.find-title-text h1 .accent-orange {
+    color: #F97316;
+}
+
+.find-title-text p {
+    font-size: 13.5px;
+    color: #6B7280;
+    font-weight: 500;
+    margin: 4px 0 0 0;
+}
+
+/* Breadcrumb Navigation */
+.find-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #6B7280;
+    background: #FFFFFF;
+    padding: 6px 14px;
+    border-radius: 8px;
+    border: 1px solid #E5E7EB;
+}
+
+.breadcrumb-link {
+    color: #4B5563;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.15s ease;
+}
+
+.breadcrumb-link:hover {
+    color: #F97316;
+}
+
+.breadcrumb-separator {
+    color: #9CA3AF;
+    font-size: 11px;
+}
+
+.breadcrumb-current {
+    color: #F97316;
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   2. LOCATION & SEARCH FILTER SECTION (PEACH HORIZONTAL BAR)
+   ========================================================================== */
+.location-filter-bar {
+    background-color: #FFF7ED;
+    border: 1px solid #FFEDD5;
+    border-radius: 14px;
+    padding: 14px 18px;
+    margin-top: 22px;
+    display: flex;
+    align-items: flex-end;
+    gap: 14px;
+}
+
+.filter-field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.filter-field-group.group-vehicle {
+    flex: 1.2 1 190px;
+}
+
+.filter-field-group.group-location {
+    flex: 1.5 1 240px;
+}
+
+.filter-field-group.group-service {
+    flex: 1.0 1 160px;
+}
+
+.filter-field-group.group-distance {
+    flex: 0.8 1 130px;
+}
+
+.filter-field-group.group-rating {
+    flex: 0.8 1 120px;
+}
+
+.filter-field-group.group-submit {
+    flex-shrink: 0;
+}
+
+.filter-field-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #374151;
+}
+
+.filter-field-label i {
+    color: #F97316;
+    font-size: 13px;
+}
+
+/* Location Input with Target Icon */
+.location-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.location-input-wrapper i.loc-pin-icon {
+    position: absolute;
+    left: 12px;
+    color: #F97316;
+    font-size: 14px;
+    pointer-events: none;
+}
+
+.location-input {
+    width: 100%;
+    height: 42px;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 9px;
+    padding: 0 42px 0 34px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #111827;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.location-input:focus {
+    border-color: #F97316;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.12);
+}
+
+.btn-gps-detect {
+    position: absolute;
+    right: 8px;
+    background: transparent;
+    border: none;
+    color: #F97316;
+    cursor: pointer;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    transition: background 0.15s ease;
+}
+
+.btn-gps-detect:hover {
+    background: #FFEDD5;
+}
+
+/* Select Dropdown Wrappers */
+.filter-select-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.filter-dropdown {
+    width: 100%;
+    height: 42px;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 9px;
+    padding: 0 30px 0 14px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #374151;
+    font-family: inherit;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.filter-dropdown:focus {
+    border-color: #F97316;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.12);
+}
+
+.filter-select-wrapper i.dropdown-arrow {
+    position: absolute;
+    right: 12px;
+    color: #6B7280;
+    font-size: 11px;
+    pointer-events: none;
+}
+
+/* Search Button */
+.btn-search-mechanics {
+    height: 42px;
+    background: #F97316;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 9px;
+    padding: 0 24px;
+    font-size: 13.5px;
+    font-weight: 700;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 2px 8px rgba(249, 115, 22, 0.25);
+}
+
+.btn-search-mechanics:hover {
+    background: #EA580C;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.35);
+}
+
+/* ==========================================================================
+   3. TWO-COLUMN MAIN LAYOUT: NEARBY MECHANICS + MAP
+   ========================================================================== */
+.nearby-mechanics-layout {
+    display: grid;
+    grid-template-columns: 1.35fr 1.05fr;
+    gap: 22px;
+    margin-top: 24px;
+    align-items: start;
+}
+
+/* ==========================================================================
+   4. LEFT COLUMN: NEARBY MECHANICS LIST
+   ========================================================================== */
+.nearby-results-panel {
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.nearby-header-row {
+    padding: 16px 20px;
+    border-bottom: 1px solid #F1F5F9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #FFFFFF;
+}
+
+.nearby-title-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nearby-icon-box {
+    width: 32px;
+    height: 32px;
+    background: #FFF7ED;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F97316;
+    font-size: 14px;
+}
+
+.nearby-title-group h2 {
+    font-size: 16.5px;
+    font-weight: 800;
+    color: #111827;
+    margin: 0;
+}
+
+.nearby-title-group span.found-count {
+    color: #6B7280;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* Sort By Control */
+.sort-by-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sort-by-group label {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.sort-select-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.sort-select {
+    height: 34px;
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 7px;
+    padding: 0 28px 0 12px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #111827;
+    font-family: inherit;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+.sort-select-wrapper i {
+    position: absolute;
+    right: 10px;
+    color: #6B7280;
+    font-size: 10px;
+    pointer-events: none;
+}
+
+/* List of Mechanic Rows */
+.mechanics-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.mechanic-row {
+    padding: 18px 20px;
+    border-bottom: 1px solid #F1F5F9;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: background 0.15s ease, border-color 0.15s ease;
+    background: #FFFFFF;
+}
+
+.mechanic-row:last-child {
+    border-bottom: none;
+}
+
+.mechanic-row:hover,
+.mechanic-row.highlighted {
+    background: #FFFDF9;
+}
+
+/* Mechanic Photo */
+.mech-photo-wrapper {
+    width: 66px;
+    height: 66px;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 1px solid #E2E8F0;
+    background: #F8FAFC;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.mech-photo-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Mechanic Main Details */
+.mech-details {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.mech-name-text {
+    font-size: 16px;
+    font-weight: 800;
+    color: #111827;
+    margin: 0 0 3px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mech-type-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2.5px 8px;
+    border-radius: 6px;
+    letter-spacing: 0.2px;
+    margin: 2px 0 4px 0;
+    width: fit-content;
+}
+
+.mech-type-pill.type-four-wheeler {
+    background: #FFF7ED;
+    color: #C2410C;
+    border: 1px solid #FFEDD5;
+}
+
+.mech-type-pill.type-two-wheeler {
+    background: #FEF9C3;
+    color: #854D0E;
+    border: 1px solid #FEF08A;
+}
+
+.mech-type-pill.type-multibrand {
+    background: #DCFCE7;
+    color: #166534;
+    border: 1px solid #BBF7D0;
+}
+
+.mech-services-text {
+    font-size: 12.5px;
+    color: #6B7280;
+    font-weight: 500;
+    margin: 0 0 4px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mech-location-text {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: #4B5563;
+    font-weight: 500;
+    margin: 0 0 4px 0;
+}
+
+.mech-location-text i {
+    color: #F97316;
+    font-size: 12px;
+}
+
+.mech-rating-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12.5px;
+    color: #6B7280;
+}
+
+.mech-rating-row i {
+    color: #F59E0B;
+    font-size: 12px;
+}
+
+.mech-rating-row strong {
+    color: #F59E0B;
+    font-weight: 800;
+}
+
+/* Mechanic Badges Column (Distance + Availability) */
+.mech-badges-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    flex-shrink: 0;
+    min-width: 95px;
+}
+
+.badge-distance {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #FFF7ED;
+    border: 1px solid #FED7AA;
+    color: #111827;
+    padding: 3px 9px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.badge-distance i {
+    color: #F97316;
+    font-size: 11px;
+}
+
+.badge-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.badge-status.status-available {
+    background: #DCFCE7;
+    color: #16A34A;
+}
+
+.badge-status.status-available::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #16A34A;
+}
+
+.badge-status.status-busy {
+    background: #FEF3C7;
+    color: #D97706;
+}
+
+.badge-status.status-busy::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #D97706;
+}
+
+.badge-status.status-offline {
+    background: #F1F5F9;
+    color: #64748B;
+}
+
+.badge-status.status-offline::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #64748B;
+}
+
+/* Mechanic Action Buttons (Right Column) */
+.mech-actions-col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-shrink: 0;
+    width: 155px;
+}
+
+.btn-view-profile {
+    height: 32px;
+    background: #F97316;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 7px;
+    font-size: 12.5px;
+    font-weight: 700;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s ease, transform 0.15s ease;
+    box-shadow: 0 1px 4px rgba(249, 115, 22, 0.2);
+}
+
+.btn-view-profile:hover {
+    background: #EA580C;
+    transform: translateY(-1px);
+}
+
+.btn-req-assistance {
+    height: 32px;
+    background: #FFFFFF;
+    color: #F97316;
+    border: 1px solid #F97316;
+    border-radius: 7px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.15s ease;
+}
+
+.btn-req-assistance:hover {
+    background: #FFF7ED;
+    border-color: #EA580C;
+    color: #EA580C;
+}
+
+/* ==========================================================================
+   5. RIGHT COLUMN: MAP & INFO CARDS
+   ========================================================================== */
+.map-and-info-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Interactive Map Card */
+.map-container-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+#mechanicsMap {
+    width: 100%;
+    height: 340px;
+    background: #F1F5F9;
+    z-index: 1;
+    cursor: crosshair;
+}
+
+.map-interaction-hint {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    background: rgba(17, 24, 39, 0.85);
+    color: #F8FAFC;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    z-index: 999;
+    pointer-events: none;
+    backdrop-filter: blur(4px);
+}
+
+/* Custom Leaflet Map Markers */
+.custom-user-marker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-marker-pin {
+    width: 36px;
+    height: 36px;
+    background: #F97316;
+    border: 3px solid #FFFFFF;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 8px rgba(249, 115, 22, 0.4);
+}
+
+.user-marker-pin i {
+    transform: rotate(45deg);
+    color: #FFFFFF;
+    font-size: 15px;
+}
+
+.custom-mech-marker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mech-marker-pin {
+    width: 30px;
+    height: 30px;
+    background: #1E293B;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-size: 13px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.mech-marker-pin:hover,
+.mech-marker-pin.active {
+    background: #F97316;
+    transform: scale(1.15);
+}
+
+/* User Location Information Card */
+.user-location-info-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 14px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+.user-loc-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-loc-icon {
+    width: 36px;
+    height: 36px;
+    background: #FFF7ED;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F97316;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.user-loc-text span.loc-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 2px;
+}
+
+.user-loc-text span.loc-address {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #4B5563;
+}
+
+.btn-change-location {
+    height: 34px;
+    background: #FFFFFF;
+    border: 1px solid #F97316;
+    color: #F97316;
+    border-radius: 8px;
+    padding: 0 14px;
+    font-size: 12.5px;
+    font-weight: 600;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+}
+
+.btn-change-location:hover {
+    background: #FFF7ED;
+    color: #EA580C;
+    border-color: #EA580C;
+}
+
+/* Why Choose Our Mechanics Card */
+.why-choose-card {
+    background-color: #FFF7ED;
+    border: 1px solid #FFEDD5;
+    border-radius: 14px;
+    padding: 16px 20px;
+}
+
+.why-choose-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.why-choose-header i {
+    color: #F97316;
+    font-size: 16px;
+}
+
+.why-choose-header h3 {
+    font-size: 14.5px;
+    font-weight: 800;
+    color: #111827;
+    margin: 0;
+}
+
+.why-features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+}
+
+.why-feature-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 6px 4px;
+    position: relative;
+}
+
+.why-feature-col:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -4px;
+    top: 15%;
+    bottom: 15%;
+    width: 1px;
+    background: #FED7AA;
+}
+
+.why-feature-col i {
+    color: #F97316;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.why-feature-col span {
+    font-size: 12px;
+    font-weight: 600;
+    color: #374151;
+    line-height: 1.3;
+}
+
+/* ==========================================================================
+   6. EMPTY STATE (When 0 Mechanics match)
+   ========================================================================== */
+.mechanics-empty-state {
+    padding: 48px 24px;
+    text-align: center;
+}
+
+.empty-icon-box {
+    width: 60px;
+    height: 60px;
+    background: #FFF7ED;
+    color: #F97316;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 14px;
+}
+
+.empty-title {
+    font-size: 17px;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 6px;
+}
+
+.empty-desc {
+    font-size: 13px;
+    color: #6B7280;
+    max-width: 360px;
+    margin: 0 auto 16px auto;
+    line-height: 1.5;
+}
+
+.btn-clear-filters {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #F97316;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s ease;
+}
+
+.btn-clear-filters:hover {
+    background: #EA580C;
+}
+
+/* ==========================================================================
+   7. MODAL STYLES (Mechanic Profile & Change Location)
+   ========================================================================== */
+.find-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(17, 24, 39, 0.65);
+    backdrop-filter: blur(4px);
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.find-modal-overlay.show {
+    display: flex;
+}
+
+.find-modal-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 540px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    border: 1px solid #E5E7EB;
+    overflow: hidden;
+    animation: modalPop 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalPop {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.modal-header-bar {
+    padding: 16px 22px;
+    border-bottom: 1px solid #F1F5F9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #FFFFFF;
+}
+
+.modal-header-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.modal-icon-badge {
+    width: 38px;
+    height: 38px;
+    background: #FFF7ED;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F97316;
+    font-size: 16px;
+}
+
+.modal-header-title h3 {
+    font-size: 17.5px;
+    font-weight: 800;
+    color: #111827;
+    margin: 0;
+}
+
+.modal-header-title p {
+    font-size: 12.5px;
+    color: #6B7280;
+    margin: 2px 0 0 0;
+}
+
+.btn-modal-close {
+    background: #F3F4F6;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    color: #6B7280;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    transition: all 0.15s ease;
+}
+
+.btn-modal-close:hover {
+    background: #E5E7EB;
+    color: #111827;
+}
+
+.modal-body-content {
+    padding: 22px;
+}
+
+.modal-footer-bar {
+    padding: 14px 22px;
+    background: #F9FAFB;
+    border-top: 1px solid #F1F5F9;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* ==========================================================================
+   8. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1100px) {
+    .nearby-mechanics-layout {
+        grid-template-columns: 1fr;
+    }
+    .location-filter-bar {
+        flex-wrap: wrap;
+    }
+    .filter-field-group.group-vehicle,
+    .filter-field-group.group-location,
+    .filter-field-group.group-service,
+    .filter-field-group.group-distance,
+    .filter-field-group.group-rating {
+        flex: 1 1 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .find-mechanics-main-card {
+        padding: 18px;
+        border-radius: 16px;
+    }
+    .location-filter-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .btn-search-mechanics {
+        width: 100%;
+        justify-content: center;
+    }
+    .mechanic-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .mech-badges-col {
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .mech-actions-col {
+        width: 100%;
+        flex-direction: row;
+    }
+    .btn-view-profile,
+    .btn-req-assistance {
+        flex: 1;
+    }
+    .why-features-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+    .why-feature-col:not(:last-child)::after {
+        display: none;
+    }
+}
+
+/* ==========================================================================
+   9. ENHANCED WORKSHOP & MECHANIC PROFILE MODAL
+   ========================================================================== */
+.find-modal-card.find-modal-profile-card {
+    max-width: 780px;
+    width: 95%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.find-modal-profile-card .modal-body-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 24px;
+}
+
+/* Hero Section */
+.mech-prof-hero {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    padding: 16px 18px;
+    background: #FFF7ED;
+    border: 1.5px solid #FFEDD5;
+    border-radius: 14px;
+    margin-bottom: 18px;
+}
+
+.mech-prof-avatar-box {
+    width: 68px;
+    height: 68px;
+    border-radius: 14px;
+    background: #FFFFFF;
+    border: 2px solid #F97316;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F97316;
+    font-size: 28px;
+    position: relative;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(249, 115, 22, 0.15);
+}
+
+.mech-prof-verified-check {
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #10B981;
+    color: #FFFFFF;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #FFFFFF;
+}
+
+.mech-prof-hero-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.mech-prof-title-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+}
+
+.mech-prof-name {
+    font-size: 18px;
+    font-weight: 800;
+    color: #111827;
+    margin: 0;
+    line-height: 1.25;
+}
+
+.mech-prof-type-badge {
+    font-size: 12px;
+    font-weight: 700;
+    color: #EA580C;
+    background: #FFFFFF;
+    border: 1px solid #FDBA74;
+    padding: 3px 10px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.mech-prof-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.prof-pill-code {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    color: #475569;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.prof-pill-rating {
+    background: #FEF3C7;
+    border: 1px solid #FDE68A;
+    color: #D97706;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Tabs Bar */
+.mech-modal-tabs {
+    display: flex;
+    gap: 6px;
+    border-bottom: 2px solid #F1F5F9;
+    margin-bottom: 18px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+}
+
+.mech-modal-tab-btn {
+    padding: 9px 15px;
+    border: none;
+    background: transparent;
+    color: #64748B;
+    font-weight: 700;
+    font-size: 13px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    white-space: nowrap;
+}
+
+.mech-modal-tab-btn:hover {
+    color: #F97316;
+    background: #FFF7ED;
+}
+
+.mech-modal-tab-btn.active {
+    color: #FFFFFF;
+    background: #F97316;
+    box-shadow: 0 4px 10px rgba(249, 115, 22, 0.25);
+}
+
+.mech-modal-tab-pane {
+    display: none;
+}
+
+.mech-modal-tab-pane.active {
+    display: block;
+    animation: fadeIn 0.2s ease;
+}
+
+/* KV Grid & Cards */
+.mech-kv-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.mech-kv-item {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.mech-kv-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.mech-kv-value {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #1E293B;
+    word-break: break-word;
+}
+
+.mech-kv-badge-orange {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #EA580C;
+    background: #FFF7ED;
+    border: 1px solid #FFEDD5;
+    padding: 3px 9px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    width: fit-content;
+    margin-top: 2px;
+}
+
+.btn-quick-contact {
+    background: #FFF7ED;
+    border: 1px solid #FDBA74;
+    color: #EA580C;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.15s;
+}
+
+.btn-quick-contact:hover {
+    background: #F97316;
+    color: #FFFFFF;
+    border-color: #F97316;
+}
+
+.mech-desc-card {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+}
+
+.mech-desc-title {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #1E293B;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.mech-desc-text {
+    font-size: 13px;
+    color: #475569;
+    margin: 0;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.mech-proximity-banner {
+    background: #FFF7ED;
+    border: 1px solid #FFEDD5;
+    border-radius: 12px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btn-get-directions {
+    background: #F97316;
+    color: #FFFFFF;
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 7px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.15s ease;
+}
+
+.btn-get-directions:hover {
+    background: #EA580C;
+}
+
+.service-chips-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.service-chip-pill {
+    background: #ECFDF5;
+    border: 1px solid #A7F3D0;
+    color: #065F46;
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.workshop-photos-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px;
+}
+
+.workshop-photo-card {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #E2E8F0;
+    background: #F8FAFC;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.workshop-photo-img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    display: block;
+}
+
+.workshop-photo-caption {
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #334155;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background: #FFFFFF;
+    border-top: 1px solid #F1F5F9;
+}
+
+@media (max-width: 640px) {
+    .mech-kv-grid {
+        grid-template-columns: 1fr;
+    }
+    .mech-prof-hero {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

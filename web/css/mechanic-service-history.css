@@ -1,0 +1,932 @@
+/* ==========================================================================
+   MECHANIC SERVICE HISTORY STYLESHEET
+   On Road Vehicle Breakdown Assistance
+   Strict Automotive Theme: Orange (#F97316), Dark Orange (#EA580C),
+   Charcoal (#1F2937), Dark Navigation (#111827), White (#FFFFFF)
+   STRICT RULE: NO BLUE COLOR ANYWHERE
+   ========================================================================== */
+
+/* Theme Variables Definition */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #111827;
+    color: #374151;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   1. MAIN CANVAS
+   ========================================================================== */
+.mech-main-canvas {
+    flex: 1;
+    margin: 16px 20px 20px 0;
+    background-color: #FFFFFF;
+    border-radius: 24px;
+    padding: 24px 28px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    min-height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   2. PAGE HEADER ROW: TITLE + DYNAMIC CURRENT DATE CARD
+   ========================================================================== */
+.sh-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.sh-title-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.sh-title-icon-box {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    background-color: #FFF7ED;
+    border: 1px solid #FFEDD5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F97316;
+    font-size: 28px;
+    flex-shrink: 0;
+}
+
+.sh-title-text h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1F2937;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.sh-title-text h1 .accent-orange {
+    color: #F97316;
+}
+
+.sh-title-text p {
+    font-size: 14.5px;
+    color: #6B7280;
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+.sh-date-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #1F2937;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.sh-date-card i {
+    color: #F97316;
+    font-size: 15px;
+}
+
+/* ==========================================================================
+   3. FOUR STATISTIC SUMMARY CARDS
+   ========================================================================== */
+.sh-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.sh-stat-card {
+    padding: 18px 20px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.sh-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+.sh-stat-icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.sh-stat-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.sh-stat-label {
+    font-size: 13px;
+    color: #4B5563;
+    font-weight: 600;
+}
+
+.sh-stat-number {
+    font-size: 26px;
+    font-weight: 800;
+    color: #1F2937;
+    line-height: 1.2;
+    margin-top: 2px;
+}
+
+/* Card Specific Colors */
+.sh-card-total {
+    background-color: #FFF7ED;
+    border-color: #FED7AA;
+}
+.sh-card-total .sh-stat-icon-box {
+    background-color: #FFEDD5;
+    color: #F97316;
+}
+
+.sh-card-completed {
+    background-color: #DCFCE7;
+    border-color: #BBF7D0;
+}
+.sh-card-completed .sh-stat-icon-box {
+    background-color: #BBF7D0;
+    color: #16A34A;
+}
+
+.sh-card-inprogress {
+    background-color: #FEF9C3;
+    border-color: #FEF08A;
+}
+.sh-card-inprogress .sh-stat-icon-box {
+    background-color: #FEF08A;
+    color: #CA8A04;
+}
+
+.sh-card-rejected {
+    background-color: #FEE2E2;
+    border-color: #FECACA;
+}
+.sh-card-rejected .sh-stat-icon-box {
+    background-color: #FECACA;
+    color: #DC2626;
+}
+
+/* ==========================================================================
+   4. SEARCH AND FILTER TOOLBAR
+   ========================================================================== */
+.sh-toolbar-form {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #FFFFFF;
+    padding: 0;
+    flex-wrap: nowrap;
+}
+
+.sh-search-box {
+    flex: 2;
+    min-width: 260px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.sh-search-box i {
+    position: absolute;
+    left: 14px;
+    color: #9CA3AF;
+    font-size: 14px;
+    pointer-events: none;
+}
+
+.sh-search-input {
+    width: 100%;
+    height: 44px;
+    padding: 10px 14px 10px 38px;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    font-size: 13px;
+    font-family: inherit;
+    color: #1F2937;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background-color: #FFFFFF;
+}
+
+.sh-search-input:focus {
+    border-color: #F97316;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+}
+
+.sh-select-box {
+    flex: 1;
+    min-width: 140px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.sh-select-control {
+    width: 100%;
+    height: 44px;
+    padding: 10px 34px 10px 14px;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    font-size: 13px;
+    font-family: inherit;
+    color: #1F2937;
+    background-color: #FFFFFF;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.sh-select-control:focus {
+    border-color: #F97316;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+}
+
+.sh-select-box i {
+    position: absolute;
+    right: 14px;
+    color: #6B7280;
+    font-size: 12px;
+    pointer-events: none;
+}
+
+/* Date Range Inputs with Separator */
+.sh-date-range-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sh-date-input-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 140px;
+}
+
+.sh-date-input-box i {
+    position: absolute;
+    left: 12px;
+    color: #9CA3AF;
+    font-size: 13px;
+    pointer-events: none;
+}
+
+.sh-date-control {
+    width: 100%;
+    height: 44px;
+    padding: 10px 10px 10px 34px;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    font-size: 12.5px;
+    font-family: inherit;
+    color: #1F2937;
+    background-color: #FFFFFF;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.sh-date-control:focus {
+    border-color: #F97316;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+}
+
+.sh-date-sep {
+    color: #9CA3AF;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Orange Search Button */
+.btn-sh-search {
+    height: 44px;
+    padding: 0 22px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #F97316, #EA580C);
+    color: #FFFFFF;
+    font-size: 13.5px;
+    font-weight: 700;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.28);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.btn-sh-search:hover {
+    background: linear-gradient(135deg, #EA580C, #C2410C);
+    box-shadow: 0 6px 16px rgba(249, 115, 22, 0.4);
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   5. SERVICE HISTORY MAIN CARD
+   ========================================================================== */
+.sh-main-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 18px;
+    padding: 20px 22px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.sh-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.sh-card-title-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sh-card-title-group i {
+    color: #F97316;
+    font-size: 19px;
+}
+
+.sh-card-title-group h2 {
+    font-size: 19px;
+    font-weight: 800;
+    color: #1F2937;
+    letter-spacing: -0.3px;
+}
+
+/* Export Report Button (Outlined Orange) */
+.btn-sh-export {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 16px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    border: 1.5px solid #F97316;
+    color: #F97316;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.btn-sh-export:hover {
+    background-color: #F97316;
+    color: #FFFFFF;
+    box-shadow: 0 3px 10px rgba(249, 115, 22, 0.3);
+}
+
+/* ==========================================================================
+   6. 9-COLUMN SERVICE HISTORY TABLE
+   ========================================================================== */
+.sh-table-container {
+    overflow-x: auto;
+    border-radius: 12px;
+}
+
+@media (min-width: 1200px) {
+    .sh-table-container {
+        overflow-x: hidden;
+    }
+}
+
+.sh-data-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 13px;
+}
+
+/* Light Gray Table Header (#F3F4F6) with Dark Charcoal Text matching reference */
+.sh-data-table thead th {
+    background-color: #F3F4F6;
+    color: #1F2937;
+    font-size: 11.5px;
+    font-weight: 700;
+    text-align: left;
+    padding: 12px 6px;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.sh-data-table thead th:first-child {
+    border-top-left-radius: 10px;
+}
+
+.sh-data-table thead th:last-child {
+    border-top-right-radius: 10px;
+}
+
+.sh-data-table tbody td {
+    padding: 10px 6px;
+    vertical-align: middle;
+    border-bottom: 1px solid #F3F4F6;
+    color: #1F2937;
+    background: #FFFFFF;
+}
+
+.sh-data-table tbody tr:hover td {
+    background-color: #FAFAFA;
+}
+
+/* Row Number */
+.td-row-num {
+    font-weight: 700;
+    color: #4B5563;
+    text-align: center;
+}
+
+/* Request ID Badge */
+.badge-req-id {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 8px;
+    background-color: #FFF7ED;
+    border: 1px solid #FFEDD5;
+    color: #F97316;
+    font-weight: 800;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+/* Vehicle Cell */
+.vehicle-cell-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.vehicle-thumb-img {
+    width: 44px;
+    height: 30px;
+    object-fit: contain;
+    border-radius: 6px;
+    background: #F9FAFB;
+    padding: 2px;
+    flex-shrink: 0;
+}
+
+.vehicle-text-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.vehicle-reg-no {
+    font-weight: 800;
+    font-size: 12.5px;
+    color: #1F2937;
+    white-space: nowrap;
+}
+
+.vehicle-model-desc {
+    font-size: 11.5px;
+    color: #6B7280;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Service Issue Cell */
+.issue-cell-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.issue-cell-box i {
+    color: #F97316;
+    font-size: 15px;
+    width: 16px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.issue-name-text {
+    font-weight: 700;
+    font-size: 12.5px;
+    color: #1F2937;
+    white-space: nowrap;
+}
+
+/* Location Cell */
+.location-cell-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+.location-cell-box i {
+    color: #F97316;
+    font-size: 13px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.location-text-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.location-name {
+    font-weight: 700;
+    font-size: 12.5px;
+    color: #1F2937;
+    white-space: nowrap;
+}
+
+.location-dist {
+    font-size: 11px;
+    color: #6B7280;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Datetime Cell */
+.datetime-cell-box {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    white-space: nowrap;
+}
+
+.datetime-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11.5px;
+    color: #4B5563;
+}
+
+.datetime-row i {
+    color: #F97316;
+    font-size: 11.5px;
+    width: 13px;
+}
+
+.dash-text {
+    color: #9CA3AF;
+    font-size: 14px;
+    font-weight: 600;
+    padding-left: 10px;
+}
+
+/* Status Badges */
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 11.5px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Completed: Light Green */
+.status-pill-completed {
+    background-color: #DCFCE7;
+    color: #16A34A;
+    border: 1px solid #BBF7D0;
+}
+.status-pill-completed i {
+    color: #16A34A;
+}
+
+/* In Progress: Light Yellow */
+.status-pill-inprogress {
+    background-color: #FEF9C3;
+    color: #854D0E;
+    border: 1px solid #FEF08A;
+}
+.status-pill-inprogress i {
+    color: #CA8A04;
+}
+
+/* Rejected: Light Red */
+.status-pill-rejected {
+    background-color: #FEE2E2;
+    color: #DC2626;
+    border: 1px solid #FECACA;
+}
+.status-pill-rejected i {
+    color: #DC2626;
+}
+
+/* Action: Outlined Orange View Button */
+.btn-sh-view {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 11px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    border: 1.5px solid #F97316;
+    color: #F97316;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.btn-sh-view:hover {
+    background-color: #F97316;
+    color: #FFFFFF;
+    box-shadow: 0 3px 10px rgba(249, 115, 22, 0.3);
+}
+
+/* ==========================================================================
+   7. FOOTER & PAGINATION CONTROLS
+   ========================================================================== */
+.sh-footer-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.sh-record-count-text {
+    font-size: 13px;
+    color: #6B7280;
+    font-weight: 500;
+}
+
+.sh-pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.sh-page-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12.5px;
+    font-weight: 700;
+    text-decoration: none;
+    border: 1px solid #E5E7EB;
+    background: #FFFFFF;
+    color: #1F2937;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sh-page-btn:hover:not(.disabled):not(.active) {
+    border-color: #F97316;
+    color: #F97316;
+    background: #FFF7ED;
+}
+
+.sh-page-btn.active {
+    background: #F97316;
+    border-color: #F97316;
+    color: #FFFFFF;
+    box-shadow: 0 2px 8px rgba(249, 115, 22, 0.35);
+}
+
+.sh-page-btn.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background: #F9FAFB;
+}
+
+/* ==========================================================================
+   8. VIEW DETAILS MODAL
+   ========================================================================== */
+.sh-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(17, 24, 39, 0.65);
+    backdrop-filter: blur(4px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.sh-modal-overlay.active {
+    display: flex;
+}
+
+.sh-modal-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 560px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    animation: modalSlide 0.25s ease-out;
+}
+
+@keyframes modalSlide {
+    from { opacity: 0; transform: translateY(20px) scale(0.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.sh-modal-header {
+    background-color: #1F2937;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #FFFFFF;
+}
+
+.sh-modal-header h3 {
+    font-size: 17px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sh-modal-header h3 span {
+    color: #F97316;
+}
+
+.btn-modal-close {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #FFFFFF;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.btn-modal-close:hover {
+    background: rgba(249, 115, 22, 0.8);
+}
+
+.sh-modal-body {
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.sh-modal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.sh-modal-item {
+    background: #F9FAFB;
+    padding: 11px 14px;
+    border-radius: 10px;
+    border: 1px solid #E5E7EB;
+}
+
+.sh-modal-label {
+    font-size: 11px;
+    color: #6B7280;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    display: block;
+    margin-bottom: 3px;
+}
+
+.sh-modal-val {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #1F2937;
+}
+
+.sh-modal-full {
+    grid-column: span 2;
+}
+
+.sh-modal-footer {
+    padding: 16px 24px;
+    background: #F9FAFB;
+    border-top: 1px solid #E5E7EB;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.btn-modal-cancel {
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    background: #FFFFFF;
+    border: 1px solid #D1D5DB;
+    color: #374151;
+}
+
+.btn-modal-submit {
+    padding: 8px 20px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    background: #F97316;
+    border: 1px solid #F97316;
+    color: #FFFFFF;
+    transition: background 0.2s;
+}
+
+.btn-modal-submit:hover {
+    background: #EA580C;
+}
+
+/* Empty State */
+.sh-empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.sh-empty-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #FFF7ED;
+    color: #F97316;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+}
+
+.sh-empty-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: #1F2937;
+}
+
+.sh-empty-desc {
+    font-size: 13.5px;
+    color: #6B7280;
+    max-width: 400px;
+}

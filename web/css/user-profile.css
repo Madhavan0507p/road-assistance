@@ -1,0 +1,483 @@
+/* ==========================================================================
+   USER PROFILE STYLESHEET (COMPACT & SLEEK)
+   On Road Vehicle Breakdown Assistance - Motorist Portal
+   Automotive Orange & Charcoal Aesthetic
+   ========================================================================== */
+
+/* 1. Page Header (Compact) */
+.user-profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.user-profile-title-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.user-profile-heading {
+    font-size: 22px;
+    font-weight: 800;
+    color: #1F2937;
+    margin: 0;
+    letter-spacing: -0.3px;
+}
+
+.user-profile-heading .highlight {
+    color: #F97316;
+}
+
+.user-profile-subheading {
+    font-size: 13px;
+    color: #64748B;
+    margin: 0;
+}
+
+.user-date-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    padding: 6px 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1F2937;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.user-date-card i {
+    color: #F97316;
+    font-size: 14px;
+}
+
+/* 2. Success & Error Alerts */
+.profile-alert-success {
+    background: #ECFDF5;
+    border: 1.5px solid #10B981;
+    color: #065F46;
+    padding: 10px 16px;
+    border-radius: 12px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13.5px;
+    font-weight: 600;
+    animation: fadeInSlide 0.25s ease;
+}
+
+.profile-alert-success i {
+    font-size: 16px;
+    color: #10B981;
+}
+
+.profile-alert-error {
+    background: #FEF2F2;
+    border: 1.5px solid #EF4444;
+    color: #991B1B;
+    padding: 10px 16px;
+    border-radius: 12px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13.5px;
+    font-weight: 600;
+    animation: fadeInSlide 0.25s ease;
+}
+
+.profile-alert-error i {
+    font-size: 16px;
+    color: #EF4444;
+}
+
+@keyframes fadeInSlide {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 3. Hero Profile Summary Card (Compact) */
+.profile-hero-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    border: 1px solid #E2E8F0;
+    padding: 14px 20px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.profile-hero-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.profile-avatar-wrap {
+    position: relative;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    border: 2.5px solid #F97316;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(249, 115, 22, 0.2);
+    background: #FFF7ED;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: #F97316;
+    flex-shrink: 0;
+}
+
+.profile-hero-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.profile-hero-name-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.profile-hero-name {
+    font-size: 18px;
+    font-weight: 800;
+    color: #1F2937;
+    margin: 0;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 10px;
+    border-radius: 9999px;
+    font-size: 11.5px;
+    font-weight: 700;
+}
+
+.status-badge.active {
+    background: #DCFCE7;
+    color: #16A34A;
+    border: 1px solid #BBF7D0;
+}
+
+.status-badge.blocked {
+    background: #FEE2E2;
+    color: #DC2626;
+    border: 1px solid #FECACA;
+}
+
+.profile-hero-tags {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 12.5px;
+    color: #64748B;
+}
+
+.profile-hero-tags span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.profile-hero-tags i {
+    color: #F97316;
+    font-size: 12px;
+}
+
+.btn-action-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 18px;
+    font-size: 13.5px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(249, 115, 22, 0.28);
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.btn-action-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(249, 115, 22, 0.36);
+}
+
+.btn-action-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #F8FAFC;
+    color: #475569;
+    border: 1.5px solid #CBD5E1;
+    border-radius: 10px;
+    padding: 8px 18px;
+    font-size: 13.5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.btn-action-secondary:hover {
+    background: #E2E8F0;
+    color: #1E293B;
+}
+
+/* 4. Profile Section Card (Compact & Sleek) */
+.profile-section-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    border: 1px solid #E2E8F0;
+    padding: 16px 20px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+.profile-section-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #F1F5F9;
+}
+
+.section-icon-badge {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: rgba(249, 115, 22, 0.12);
+    color: #F97316;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.section-head-title {
+    font-size: 15.5px;
+    font-weight: 800;
+    color: #1F2937;
+    margin: 0;
+}
+
+.section-head-subtitle {
+    font-size: 12px;
+    color: #64748B;
+    margin: 2px 0 0 0;
+}
+
+/* 5. View Mode Details Grid (Compact) */
+.profile-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 20px;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.detail-label {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.detail-label i {
+    color: #F97316;
+    font-size: 11.5px;
+}
+
+.detail-value-box {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    padding: 8px 14px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #1E293B;
+    min-height: 38px;
+    display: flex;
+    align-items: center;
+    word-break: break-word;
+    box-sizing: border-box;
+}
+
+.detail-value-box.highlight {
+    color: #0F172A;
+    font-weight: 700;
+}
+
+.locked-indicator {
+    margin-left: auto;
+    font-size: 11px;
+    background: #E2E8F0;
+    color: #64748B;
+    padding: 2px 8px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 600;
+}
+
+/* 6. Edit Mode Form Inputs & Locked Styling */
+.edit-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.field-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #334155;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.field-label i {
+    color: #F97316;
+}
+
+.field-label .req {
+    color: #EF4444;
+}
+
+.field-input {
+    width: 100%;
+    height: 40px;
+    background: #FFFFFF;
+    border: 1.5px solid #CBD5E1;
+    border-radius: 10px;
+    padding: 0 14px;
+    font-size: 13.5px;
+    font-family: inherit;
+    color: #0F172A;
+    outline: none;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.field-input:focus {
+    border-color: #F97316;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.16);
+}
+
+.field-input.disabled,
+.field-input:disabled,
+.field-input[readonly] {
+    background: #F8FAFC !important;
+    border-color: #E2E8F0 !important;
+    color: #64748B !important;
+    cursor: not-allowed;
+}
+
+.field-input.editable-active {
+    border-color: #F97316 !important;
+    background: #FFFFFF !important;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.08);
+}
+
+.locked-badge {
+    font-size: 11px;
+    font-weight: 700;
+    color: #64748B;
+    background: #E2E8F0;
+    padding: 2px 8px;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.badge-editable-tag {
+    font-size: 11px;
+    font-weight: 700;
+    color: #C2410C;
+    background: #FFEDD5;
+    border: 1px solid #FDBA74;
+    padding: 2px 8px;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.field-locked-hint {
+    font-size: 11px;
+    color: #94A3B8;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 2px;
+}
+
+.field-instruction {
+    font-size: 11.5px;
+    color: #DC2626;
+    margin-top: 2px;
+    display: none;
+    align-items: center;
+    gap: 4px;
+}
+
+.form-footer-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid #F1F5F9;
+}
+
+@media (max-width: 768px) {
+    .profile-details-grid,
+    .edit-form-grid {
+        grid-template-columns: 1fr;
+    }
+    .profile-hero-card,
+    .profile-section-card {
+        padding: 14px 16px;
+    }
+}

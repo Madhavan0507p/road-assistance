@@ -1,0 +1,900 @@
+/* ==========================================================================
+   MECHANIC SERVICE REQUESTS STYLESHEET
+   On Road Vehicle Breakdown Assistance
+   Strict Automotive Theme: Orange (#F97316), Charcoal (#1F2937),
+   Dark Navigation (#111827), White (#FFFFFF), Slate (#F1F5F9)
+   STRICT RULE: NO BLUE COLOR ANYWHERE
+   ========================================================================== */
+
+/* Theme Variables Definition */
+
+/* ==========================================================================
+   1. MAIN CANVAS
+   ========================================================================== */
+.mech-main-canvas {
+    flex: 1;
+    margin: 16px 20px 20px 0;
+    background: #FFFFFF;
+    border-radius: 24px;
+    padding: 24px 28px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    min-width: 0;
+    overflow-y: auto;
+}
+
+/* ==========================================================================
+   2. PAGE HEADER ROW (Title & Dynamic Date Card)
+   ========================================================================== */
+.sr-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.sr-title-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.sr-title-icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background-color: #FFEDD5;
+    color: #F97316;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.sr-title-text h1 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #1F2937;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    margin: 0;
+}
+
+.sr-title-text h1 .accent-orange {
+    color: #F97316;
+}
+
+.sr-title-text p {
+    color: #64748B;
+    font-size: 13.5px;
+    margin: 4px 0 0 0;
+    font-weight: 500;
+}
+
+.sr-date-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 9px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1F2937;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.sr-date-card i {
+    color: #F97316;
+    font-size: 15px;
+}
+
+/* ==========================================================================
+   3. FOUR SUMMARY METRICS CARDS
+   ========================================================================== */
+.sr-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.sr-stat-card {
+    border-radius: 16px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sr-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* Card 1: Total (Light Orange) */
+.sr-card-total {
+    background-color: #FFF7ED;
+    border-color: #FFEDD5;
+}
+
+/* Card 2: Pending (Light Yellow) */
+.sr-card-pending {
+    background-color: #FEF9C3;
+    border-color: #FEF08A;
+}
+
+/* Card 3: In Progress (Light Orange/Amber) */
+.sr-card-accepted {
+    background-color: #FFFBEB;
+    border-color: #FDE68A;
+}
+
+/* Card 4: Completed (Light Green) */
+.sr-card-completed {
+    background-color: #DCFCE7;
+    border-color: #BBF7D0;
+}
+
+.sr-stat-icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.sr-card-total .sr-stat-icon-box {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.sr-card-pending .sr-stat-icon-box {
+    background: rgba(234, 179, 8, 0.25);
+    color: #CA8A04;
+}
+
+.sr-card-accepted .sr-stat-icon-box {
+    background: rgba(249, 115, 22, 0.2);
+    color: #F97316;
+}
+
+.sr-card-completed .sr-stat-icon-box {
+    background: rgba(22, 163, 74, 0.2);
+    color: #16A34A;
+}
+
+.sr-stat-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.sr-stat-label {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #4B5563;
+}
+
+.sr-stat-number {
+    font-size: 24px;
+    font-weight: 800;
+    color: #1F2937;
+    line-height: 1.2;
+    margin-top: 2px;
+}
+
+/* ==========================================================================
+   4. STATUS FILTER TABS
+   ========================================================================== */
+.sr-filter-tabs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+}
+
+.sr-filter-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    color: #374151;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.sr-filter-tab:hover {
+    background: #E2E8F0;
+    color: #1F2937;
+}
+
+.sr-filter-tab.active {
+    background: #F97316;
+    border-color: #F97316;
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+}
+
+.sr-tab-badge {
+    padding: 2px 7px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    background: rgba(0, 0, 0, 0.08);
+}
+
+.sr-filter-tab.active .sr-tab-badge {
+    background: rgba(255, 255, 255, 0.25);
+    color: #FFFFFF;
+}
+
+/* ==========================================================================
+   5. SEARCH AND FILTER TOOLBAR
+   ========================================================================== */
+.sr-toolbar-form {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+}
+
+.sr-search-box {
+    flex: 2;
+    min-width: 240px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.sr-search-box i {
+    position: absolute;
+    left: 14px;
+    color: #64748B;
+    font-size: 14px;
+    pointer-events: none;
+}
+
+.sr-search-input {
+    width: 100%;
+    height: 42px;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    padding: 0 14px 0 38px;
+    font-size: 13.5px;
+    color: #1F2937;
+    background: #FFFFFF;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.sr-search-input:focus {
+    border-color: #F97316;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+}
+
+.sr-select-box {
+    flex: 1;
+    min-width: 170px;
+    position: relative;
+}
+
+.sr-select-control {
+    width: 100%;
+    height: 42px;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    padding: 0 32px 0 14px;
+    font-size: 13.5px;
+    color: #1F2937;
+    background: #FFFFFF;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    font-weight: 500;
+}
+
+.sr-select-control:focus {
+    border-color: #F97316;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+}
+
+.sr-select-box i {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748B;
+    font-size: 12px;
+    pointer-events: none;
+}
+
+.btn-sr-search {
+    height: 42px;
+    background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    padding: 0 20px;
+    font-size: 13.5px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+    flex-shrink: 0;
+}
+
+.btn-sr-search:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(249, 115, 22, 0.4);
+}
+
+.btn-sr-reset {
+    height: 42px;
+    background: #F1F5F9;
+    color: #374151;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    padding: 0 16px;
+    font-size: 13.5px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    transition: background 0.2s;
+    flex-shrink: 0;
+}
+
+.btn-sr-reset:hover {
+    background: #E2E8F0;
+    color: #1F2937;
+}
+
+/* ==========================================================================
+   6. TABLE CARD
+   ========================================================================== */
+.sr-main-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: 22px 24px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+
+.sr-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.sr-card-title-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sr-card-title-group i {
+    color: #F97316;
+    font-size: 20px;
+}
+
+.sr-card-title-group h2 {
+    font-size: 18px;
+    font-weight: 800;
+    color: #1F2937;
+    margin: 0;
+}
+
+/* Table Responsive Container */
+.sr-table-container {
+    overflow-x: auto;
+    border-radius: 12px;
+}
+
+.sr-data-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 13px;
+}
+
+.sr-data-table thead th {
+    background-color: #F1F5F9;
+    color: #1F2937;
+    font-size: 11.5px;
+    font-weight: 700;
+    text-align: left;
+    padding: 10px 8px;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.sr-data-table tbody tr {
+    transition: background-color 0.15s ease;
+}
+
+.sr-data-table tbody tr:hover {
+    background-color: #FFF7ED;
+}
+
+.sr-data-table tbody td {
+    padding: 10px 8px;
+    border-bottom: 1px solid #F1F5F9;
+    vertical-align: middle;
+    color: #334155;
+    font-size: 13px;
+}
+
+/* Location cell truncating */
+.sr-loc-cell {
+    max-width: 170px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sr-loc-cell span {
+    max-width: 145px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+}
+
+/* Ticket Code Badge */
+.sr-ticket-badge {
+    font-weight: 800;
+    color: #F97316;
+    background: rgba(249, 115, 22, 0.1);
+    padding: 4px 10px;
+    border-radius: 8px;
+    display: inline-block;
+    font-size: 12.5px;
+    letter-spacing: 0.2px;
+}
+
+/* Motorist Info Cell */
+.sr-user-cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sr-user-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #FFF7ED;
+    border: 1px solid #FED7AA;
+    color: #F97316;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.sr-user-name {
+    font-weight: 700;
+    color: #1F2937;
+    display: block;
+}
+
+.sr-user-phone {
+    font-size: 11.5px;
+    color: #64748B;
+}
+
+/* Vehicle Cell */
+.sr-vehicle-number {
+    font-family: monospace;
+    font-weight: 700;
+    color: #1E293B;
+    display: block;
+    font-size: 13px;
+}
+
+.sr-vehicle-model {
+    font-size: 11.5px;
+    color: #64748B;
+}
+
+/* Status Badges */
+.badge-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 11px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.badge-status-pending {
+    background-color: #FEF9C3;
+    color: #854D0E;
+    border: 1px solid #FEF08A;
+}
+
+.badge-status-inprogress {
+    background-color: #FFF7ED;
+    color: #C2410C;
+    border: 1px solid #FFEDD5;
+}
+
+.badge-status-completed {
+    background-color: #DCFCE7;
+    color: #16A34A;
+    border: 1px solid #BBF7D0;
+}
+
+.badge-status-cancelled {
+    background-color: #FEE2E2;
+    color: #DC2626;
+    border: 1px solid #FECACA;
+}
+
+/* Fee Cell */
+.sr-fee-amount {
+    font-weight: 800;
+    color: #16A34A;
+    font-size: 14px;
+}
+
+/* Action Buttons */
+.sr-actions-cell {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+    white-space: nowrap;
+}
+
+.btn-table-action {
+    height: 30px;
+    padding: 0 10px;
+    border-radius: 7px;
+    font-size: 11.5px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.btn-action-view {
+    background: #F1F5F9;
+    color: #475569;
+    border: 1px solid #E2E8F0;
+}
+
+.btn-action-view:hover {
+    background: #E2E8F0;
+    color: #1F2937;
+}
+
+.btn-action-accept {
+    background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+    color: #FFFFFF;
+    box-shadow: 0 2px 8px rgba(249, 115, 22, 0.25);
+}
+
+.btn-action-accept:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.35);
+}
+
+.btn-action-reject {
+    background: #FEF2F2;
+    color: #DC2626;
+    border: 1.5px solid #FECACA;
+}
+
+.btn-action-reject:hover {
+    background: #DC2626;
+    color: #FFFFFF;
+    border-color: #DC2626;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25);
+}
+
+/* ==========================================================================
+   7. PAGINATION
+   ========================================================================== */
+.sr-pagination-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid #F1F5F9;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.sr-pagination-info {
+    font-size: 13px;
+    color: #64748B;
+    font-weight: 500;
+}
+
+.sr-pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.sr-page-btn {
+    height: 34px;
+    min-width: 34px;
+    padding: 0 10px;
+    border-radius: 8px;
+    border: 1px solid #E2E8F0;
+    background: #FFFFFF;
+    color: #475569;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.sr-page-btn:hover:not(.disabled):not(.active) {
+    background: #F8FAFC;
+    border-color: #CBD5E1;
+    color: #1F2937;
+}
+
+.sr-page-btn.active {
+    background: #F97316;
+    border-color: #F97316;
+    color: #FFFFFF;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(249, 115, 22, 0.3);
+}
+
+.sr-page-btn.disabled {
+    background: #F8FAFC;
+    color: #94A3B8;
+    border-color: #E2E8F0;
+    cursor: not-allowed;
+}
+
+/* ==========================================================================
+   8. VIEW DETAILS MODAL
+   ========================================================================== */
+.sr-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(17, 24, 39, 0.75);
+    backdrop-filter: blur(4px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2100;
+    padding: 20px;
+}
+
+.sr-modal-overlay.active {
+    display: flex;
+}
+
+.sr-modal-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    animation: modalSlideUp 0.25s ease-out;
+}
+
+@keyframes modalSlideUp {
+    from { opacity: 0; transform: translateY(24px) scale(0.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.sr-modal-header {
+    background-color: #1F2937;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #FFFFFF;
+}
+
+.sr-modal-header h3 {
+    font-size: 17px;
+    font-weight: 800;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sr-modal-header h3 span {
+    color: #F97316;
+}
+
+.btn-modal-close {
+    background: rgba(255, 255, 255, 0.12);
+    border: none;
+    color: #FFFFFF;
+    font-size: 18px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.btn-modal-close:hover {
+    background: rgba(249, 115, 22, 0.8);
+}
+
+.sr-modal-body {
+    padding: 24px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.sr-modal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.sr-modal-item {
+    background: #F8FAFC;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid #E2E8F0;
+}
+
+.sr-modal-label {
+    font-size: 11.5px;
+    color: #64748B;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.sr-modal-val {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1F2937;
+}
+
+.sr-modal-full {
+    grid-column: span 2;
+}
+
+.sr-modal-footer {
+    padding: 16px 24px;
+    background: #F8FAFC;
+    border-top: 1px solid #E2E8F0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.btn-modal-action {
+    padding: 9px 20px;
+    border-radius: 10px;
+    font-size: 13.5px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-modal-sec {
+    background: #E2E8F0;
+    color: #1F2937;
+}
+
+.btn-modal-sec:hover {
+    background: #CBD5E1;
+}
+
+.btn-modal-prim {
+    background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+}
+
+.btn-modal-prim:hover {
+    box-shadow: 0 6px 16px rgba(249, 115, 22, 0.4);
+}
+
+.btn-modal-reject {
+    background: #FEF2F2;
+    color: #DC2626;
+    border: 1.5px solid #FECACA;
+}
+
+.btn-modal-reject:hover {
+    background: #DC2626;
+    color: #FFFFFF;
+    border-color: #DC2626;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+/* ==========================================================================
+   9. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1100px) {
+    .sr-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .mech-main-canvas {
+        margin: 12px;
+        padding: 18px 16px;
+    }
+    .sr-stats-grid {
+        grid-template-columns: 1fr;
+    }
+    .sr-toolbar-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .sr-search-box, .sr-select-box {
+        width: 100%;
+    }
+    .sr-modal-grid {
+        grid-template-columns: 1fr;
+    }
+    .sr-modal-full {
+        grid-column: span 1;
+    }
+}
