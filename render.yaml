@@ -8,14 +8,12 @@ services:
     healthCheckPath: /
     envVars:
       - key: DB_HOST
-        sync: false
+        value: mysql-9265eb3-madhavan0507p.a.aivencloud.com
       - key: DB_PORT
-        sync: false
+        value: "21533"
       - key: DB_NAME
-        sync: false
         value: defaultdb
       - key: DB_USER
-        sync: false
         value: avnadmin
       - key: DB_PASSWORD
         sync: false
